@@ -1,0 +1,97 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+
+  body {    
+    background-color: #ebebeb;
+    line-height: 1.75em;
+    min-width: 992px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  }
+
+  .navbar-blue{
+    background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+  }
+
+  .navbar a{
+      color:#fff;
+  }
+
+  .post{
+    margin-top: 15px;
+    background-color: #fff;       
+  }
+
+  .post-title{
+    font-size:24px;
+    margin: 10px 0;
+  }
+
+  .post-img{
+      width: 100%;
+  }
+
+  .post-body{
+      padding: 15px;
+  }
+
+  .post-tag{
+      
+      font-size: 12px;
+      color: #868585;
+  }
+
+  .post-summary{
+      font-size: 14px;
+      margin: 10px 0;
+  }
+
+  .post-content{
+      font-size: 16px;
+      margin: 15px 0;
+      min-height: 400px;
+  }
+
+  .post-foot{
+      padding-right: 15px;
+      padding-bottom: 15px;
+      color: #868585;
+      text-align: right;
+  }
+
+  .comment{
+      margin: 15px 0;
+      background-color: #fff;
+      padding: 15px;
+  }
+
+  .widget{
+      margin-top: 15px;
+      background-color: #fff;
+      padding: 10px;
+  }
+
+  .widget-title{
+      font-size: 16px;
+      font-weight: 700;
+      margin: 5px 0;
+      border-bottom: 1px #ebebeb solid;
+  }
+
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #725b94;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #725b94;
+  }
+  
+  
+  

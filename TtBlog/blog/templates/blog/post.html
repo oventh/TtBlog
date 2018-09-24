@@ -1,0 +1,62 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{site.Name}} - {{site.Summary}}{% endblock %}
+{% block name %}{{site.Name}}{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="post">            
+            <div class="post-body">
+                <div class="post-title">{{post.Title}}</div>
+                <div class="post-tag">
+                    <b>分类：</b>
+                    {% for c in post.Categories.all %}
+                    {{c.Name}}
+                    {% if not forloop.last %}
+                    /
+                    {% endif %}
+                    {% endfor %}
+                    <b style="margin-left:10px;">标签:</b>
+                    {% for t in post.Tags.all %}
+                    {{t.Name}}
+                    {% if not forloop.last %}
+                    /
+                    {% endif %}
+                    {% endfor %}
+                    <b style="margin-left:10px;">时间：</b>{{post.CreateTime| date:'Y/m/d H:i'}}
+                    <b style="margin-left:10px;">作者：</b><a href="#">{{post.User.Nickname}}</a>
+                </div>
+                <div class="post-content">
+                    {{post.Content}}
+                </div>
+            </div>
+        </div>
+        
+        <div class="comment">
+            <h4>评论({{ comments | length }})</h4>
+            <hr />
+        </div>
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="widget">
+            <div class="widget-title">最新发布</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-unstyled">
+                        <li><a href="#">控制台</a></li>
+                        <li><a href="#">发布</a></li>
+                        <li><a href="#">更改密码</a></li>
+                        <li><a href="#">注销</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- Search Widget -->
+
+    </div>
+</div>
+
+{% endblock %}

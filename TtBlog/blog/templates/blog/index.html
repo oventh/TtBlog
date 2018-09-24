@@ -1,4 +1,134 @@
 {% extends "blog/base.html" %}
 
+{% block title %}{{site.Name}} - {{site.Summary}}{% endblock %}
+{% block name %}{{site.Name}}{% endblock %}
+
 {% block content %}
+
+<div class="row">    
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">      
+      
+      {% for p in posts %}
+      <!-- Blog Post -->
+      <div class="post">
+        {% if p.Banner != None and p.Banner != '' %}
+          <a href="/post/{{p.Id}}"><img class="post-img" src="{{p.Banner}}}" alt="post image" /></a>
+        {% else %}
+          <a href="/post/{{p.Id}}"><img class="post-img" src="http://placehold.it/750x300" alt="post image" /></a>
+        {% endif %}
+        <div class="post-body">
+          <div class="post-title"><a href="/post/{{p.Id}}">{{p.Title}}</a></div>
+          <div class="post-tag">
+            <b>分类：</b>
+            {% for c in p.Categories.all %}
+              {{c.Name}}
+              {% if not forloop.last %}
+                /
+              {% endif %}
+            {% endfor %}
+            <b style="margin-left:10px;">标签:</b>
+            {% for t in p.Tags.all %}
+              {{t.Name}}
+              {% if not forloop.last %}
+                /
+              {% endif %}
+            {% endfor %}
+            <b style="margin-left:10px;">时间：</b>{{p.CreateTime| date:'Y/m/d H:i'}}
+            <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.Nickname}}</a>
+          </div>
+          <p class="post-summary">
+            {{p.Content}}
+          </p>
+          <a href="/post/{{p.Id}}" class="btn btn-default">查看详细 >></a>
+        </div>            
+      </div>
+      {% endfor %}
+
+      
+
+      <!-- Pagination -->
+      <nav aria-label="Page navigation" style="text-align:center;">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+      <!-- Search Widget -->
+      <div class="widget">
+        <div class="widget-title">管理</div>
+        <div class="row">
+          <div class="col-md-12">   
+            <ul class="list-unstyled">
+              <li><a href="#">控制台</a></li>
+              <li><a href="#">发布</a></li>
+              <li><a href="#">更改密码</a></li>
+              <li><a href="#">注销</a></li>            
+            </ul>         
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Widget -->
+      <div class="widget">
+        <div class="widget-title">分类</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              {% for c in categories %}
+                <span class="label label-primary" style="padding:5px;"><a href="/?category={{c.Id}}" style="color:#fff;">{{c.Name}}</a></span> 
+              {% endfor %}
+            </div>            
+        </div>
+      </div>
+      </div>
+
+
+      <!-- tags Widget -->
+      <div class="widget">
+          <div class="widget-title">标签</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                {% for c in tags %}
+                  <span class="label label-success" style="padding:5px;"><a href="/?tag={{c.Id}}" style="color:#fff;">{{c.Name}}</a></span> 
+                {% endfor %}
+              </div>            
+          </div>
+        </div>
+      </div>
+
+      <!-- Side Widget -->
+      <div class="widget">
+        <div class="widget-title">评论</div>
+        <div class="card-body">
+          You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
 {% endblock %}
