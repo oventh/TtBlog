@@ -47,4 +47,26 @@ def post(request, id):
 
     return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': comments})
 
+# manage site controller #
 
+
+def manage(request):
+    return render(request, "manage/index.html")
+
+
+def content(request):
+    return render(request, "manage/content.html")
+
+
+def category(request):
+    return render(request, "manage/category.html")
+
+
+def comment(request):
+    return render(request, "manage/comment.html")
+
+
+def setting(request):
+    return render(request, "manage/setting.html")
+
+   
