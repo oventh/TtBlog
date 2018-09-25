@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>管理面板 - Tatta Blog</title>
+    <title>控制面板 - Tatta Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/static/manage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,12 +50,15 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li>
+                            <a href="/"><i class="fa fa-user fa-fw"></i> 访问博客</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> 个人设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -72,17 +75,17 @@
                             <a href="/manage"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                         <li>
-                            <a href="/manage/content"><i class="fa fa-bar-chart-o fa-fw"></i> 内容</a>
+                            <a href="/manage/content"><i class="fa fa-bar-chart-o fa-fw"></i> 内容管理</a>
                             
                         </li>
                         <li>
-                            <a href="/manage/category"><i class="fa fa-table fa-fw"></i> 分类</a>
+                            <a href="/manage/category"><i class="fa fa-table fa-fw"></i> 分类管理</a>
                         </li>
                         <li>
-                            <a href="/manage/comment"><i class="fa fa-edit fa-fw"></i> 评论</a>
+                            <a href="/manage/comment"><i class="fa fa-edit fa-fw"></i> 评论管理</a>
                         </li> 
                         <li>
-                            <a href="manage/setting"><i class="fa fa-cog fa-fw"></i> 设置</a>
+                            <a href="manage/setting"><i class="fa fa-cog fa-fw"></i> 基本设置</a>
                         </li>
                         <li></li>
                     </ul>
@@ -106,13 +109,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="/static/manage/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/manage/vendor/jquery/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/static/manage/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/static/manage/vendor/metisMenu/metisMenu.min.js"></script>    
 
     <!-- Custom Theme JavaScript -->
     <script src="/static/manage/js/sb-admin-2.js"></script>

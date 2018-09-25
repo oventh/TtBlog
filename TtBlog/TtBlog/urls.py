@@ -22,6 +22,10 @@ urlpatterns = [
     path("post/<int:id>", include("blog.urls")),
     path("manage/", include("blog.urls")),
     path("manage/content", include("blog.urls")),
+    path('manage/addPost', include("blog.urls")),
+    path('login',include("blog.urls")),
+    path('dologin', include("blog.urls")),
+    path('logout', include("blog.urls")),
 
     path('admin/', admin.site.urls),
     
