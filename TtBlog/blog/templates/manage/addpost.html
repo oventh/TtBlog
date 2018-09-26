@@ -20,6 +20,7 @@
                 <label>内容</label>
                 <div id="divContent"></div>
             </div>
+            {% csrf_token %}
         </form>
     </div>
 </div>
@@ -33,8 +34,12 @@
 
 <script type='text/javascript'>
     var E = window.wangEditor
-    var editor2 = new E('#divContent')
-    editor2.create()
+    var editor = new E('#divContent')
+    editor.customConfig.uploadImgServer = "/manage/upload"
+    editor.customConfig.uploadImgParams = {
+        csrfmiddlewaretoken: '{{csrf_token}}'
+    }
+    editor.create()
 </script>
 
 {% endblock %}

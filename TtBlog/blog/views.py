@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+import django.contrib.auth
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import redirect
-import hashlib
+from django.http import HttpResponse
+import os
+import datetime
 
 from . import models
-# Create your views here.
+
 
 def index(request):
 
@@ -60,48 +64,44 @@ def login(request):
 def doLogin(request):
     username = request.POST.get("username")
     password = request.POST.get("password")
-    remember = request.POST.get("remember")
+    nextUrl = request.POST.get("next")
 
     if username == None or username == '' or password == None or password == '':
         return render(request, "manage/login.html",{"err": "用户名和密码不能为空！"})
 
-    user = models.User.objects.filter(Username = username).first()
-    if user == None or user.Password != hashlib.md5(password.encode(encoding='UTF-8')).hexdigest():
+    user = django.contrib.auth.authenticate(username= username, password = password)
+    if user is None:
         return render(request, "manage/login.html",{"err": "用户名或密码不正确！"})
-
-    request.session["__loginUserId__"] = user.Id
-    request.session["__loginNickname__"] = user.Nickname
-    
-
-    return redirect("/manage")
+    else:
+        django.contrib.auth.login(request, user)
+        if nextUrl is not None:
+            return redirect(nextUrl)
+        else:
+            return redirect("/manage")
 
 
 def logout(request):
-    del request.session["__loginUserId__"]
+    logout(request)
     return redirect("/")
-
-
-def checkAuth(request):
-    if request.session["__loginUserId__"] == None:
-        return redirect("/login")
 
 
 # manage site controller #
 
+
+@login_required(login_url="/login")
 def manage(request):
-    checkAuth(request)    
 
     return render(request, "manage/index.html")
 
 
+@login_required(login_url="/login")
 def content(request):
-    checkAuth(request)
 
     page = request.GET.get("page")
 
     beginNum, endNum = 0, 15
 
-    if page == None or not page.isdigit():
+    if page is None or not page.isdigit():
         page = 0
         beginNum, endNum = 0, 15
     else:
@@ -121,27 +121,43 @@ def content(request):
     return render(request, "manage/content.html", {'posts': posts, 'page': page, 'totalPage': totalPage})
 
 
+@login_required(login_url="/login")
 def addPost(request):
-    checkAuth(request)
 
     return render(request, "manage/addpost.html")
 
 
+@login_required(login_url="/login")
 def category(request):
-    checkAuth(request)
 
     return render(request, "manage/category.html")
 
 
+@login_required(login_url="/login")
 def comment(request):
-    checkAuth(request)
 
     return render(request, "manage/comment.html")
 
 
+@login_required(login_url="/login")
 def setting(request):
-    checkAuth(request)
-
     return render(request, "manage/setting.html")
 
-   
+
+@csrf_protect
+def upload(request):
+    urls = []
+    for k in request.FILES.keys():
+        img = request.FILES.get(k)
+        saveDir = 'static/upload/{0}'.format(datetime.datetime.now().strftime('%y%m%d'))
+        os.mkdir(saveDir)
+        savePath = os.path.join(saveDir, img.name)
+        with open(savePath, 'r+') as p:
+            for data in img.chunks():
+                p.write(data)
+
+        urls.append(savePath)
+
+    return HttpResponse({'errno': 0, 'data': urls})
+
+
