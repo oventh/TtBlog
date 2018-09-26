@@ -20,7 +20,27 @@
                 <label>内容</label>
                 <div id="divContent"></div>
             </div>
-            {% csrf_token %}
+            <div class="form-group">
+                <p style="font-weight:bold;">分类</p>
+
+                {% for c in categories %}
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="category" value="{{c.Id}}" /> {{c.Name}}
+                </label>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <p style="font-weight:bold;">标签</p>
+
+                {% for t in tags %}
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="tag" value="{{t.Id}}" /> {{t.Name}}
+                </label>
+                {% endfor %}
+            </div>
+            <div class="form-group" style="text-align:center;">
+                <button class="btn btn-primary">保 存</button>
+            </div>
         </form>
     </div>
 </div>

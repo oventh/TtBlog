@@ -124,8 +124,10 @@ def content(request):
 
 @login_required(login_url="/login")
 def addPost(request):
+    categories = models.Category.objects.all()
+    tags = models.Tag.objects.all()
 
-    return render(request, "manage/addpost.html")
+    return render(request, "manage/addpost.html", {'categories': categories, 'tags': tags})
 
 
 @login_required(login_url="/login")
