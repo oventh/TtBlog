@@ -153,7 +153,7 @@ def upload(request):
     for k in request.FILES.keys():
         img = request.FILES.get(k)
         rootDir = datetime.datetime.now().strftime('%y%m%d')    # 以日期做为存储图片的最后一级目录
-        saveDir = os.getcwd() + '/TtBlog/blog/static/upload/{0}'.format(rootDir)
+        saveDir = os.getcwd() + '/blog/static/upload/{0}'.format(rootDir)
         if not os.path.exists(saveDir):
             os.makedirs(saveDir)            
         
