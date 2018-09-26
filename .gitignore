@@ -35216,3 +35216,6 @@ TtBlog/blog/__pycache__/models.cpython-37.pyc
 TtBlog/blog/__pycache__/urls.cpython-37.pyc
 TtBlog/blog/__pycache__/views.cpython-37.pyc
 /runtime
+/TtBlog/blog/static/upload
+/TtBlog/blog/__pycache__
+/TtBlog/blog/migrations/__pycache__

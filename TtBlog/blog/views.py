@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 import os
 import datetime
+import json
 
 from . import models
 
@@ -149,15 +150,19 @@ def upload(request):
     urls = []
     for k in request.FILES.keys():
         img = request.FILES.get(k)
-        saveDir = 'static/upload/{0}'.format(datetime.datetime.now().strftime('%y%m%d'))
-        os.mkdir(saveDir)
+        rootDir = datetime.datetime.now().strftime('%y%m%d')    # 以日期做为存储图片的最后一级目录
+        saveDir = os.getcwd() + '/TtBlog/blog/static/upload/{0}'.format(rootDir)
+        if not os.path.exists(saveDir):
+            os.makedirs(saveDir)            
+        
         savePath = os.path.join(saveDir, img.name)
-        with open(savePath, 'r+') as p:
+        with open(savePath, 'wb+') as p:
             for data in img.chunks():
                 p.write(data)
 
-        urls.append(savePath)
+        url = "/static/upload/{0}/{1}".format(rootDir, img.name)
+        urls.append(url)    
 
-    return HttpResponse({'errno': 0, 'data': urls})
+    return HttpResponse(json.dumps({'errno': 0, 'data': urls}), content_type="application/json")
 
 
