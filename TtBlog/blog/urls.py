@@ -15,4 +15,5 @@ urlpatterns = [
     path('manage/content', views.content, name="content"),
     path('manage/addpost', views.addPost, name="addPost"),
     path('manage/upload', views.upload, name='upload'),
+    path('manage/savePost', views.savePost, name='savePost'),
 ]

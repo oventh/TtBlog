@@ -14,11 +14,12 @@
         <form>
             <div class="form-group">
                 <label>标题</label>
-                <input class="form-control" maxlength="100" placeholder="标题" type="text" />
+                <input id="inptTitle" class="form-control" maxlength="100" placeholder="标题" type="text" />
             </div>
             <div class="form-group">
                 <label>内容</label>
-                <div id="divContent"></div>
+                <div id="divToolbar" style="border: 1px #ccc solid;"></div>
+                <div id="divContent" style="border: 1px #ccc solid; height:500px;"></div>
             </div>
             <div class="form-group">
                 <p style="font-weight:bold;">分类</p>
@@ -39,8 +40,9 @@
                 {% endfor %}
             </div>
             <div class="form-group" style="text-align:center;">
-                <button class="btn btn-primary">保 存</button>
+                <button class="btn btn-primary" type="button" onclick="sumbit()">保存文章</button>
             </div>
+            {% csrf_token %}
         </form>
     </div>
 </div>
@@ -54,12 +56,40 @@
 
 <script type='text/javascript'>
     var E = window.wangEditor
-    var editor = new E('#divContent')
+    var editor = new E('#divToolbar', '#divContent')
     editor.customConfig.uploadImgServer = "/manage/upload"
     editor.customConfig.uploadImgParams = {
         csrfmiddlewaretoken: '{{csrf_token}}'
     }
     editor.create()
+
+
+    function sumbit() {
+        var title = $("#inptTitle").val();
+        var content = editor.txt.html();
+        var cids = [], tids = [];
+
+        $("input[name='category']:checked").each(function () {
+            cids.push($(this).val());
+        });
+        $("input[name='tag']:checked").each(function () {
+            tids.push($(this).val());
+        })
+
+        $.post("/manage/savePost",{
+            title: title,
+            content: content,
+            category: JSON.stringify(cids),
+            tag: JSON.stringify(tids),
+            csrfmiddlewaretoken: '{{csrf_token}}'
+        }, function (result) {
+            if(result.result == true){
+                window.href.src = "/manage/content";
+            } else{
+                alert("保存文章时发生错误，原因：{0}".format(result.err))
+            }
+        }, "JSON");
+    }
 </script>
 
 {% endblock %}

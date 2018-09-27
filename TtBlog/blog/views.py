@@ -8,6 +8,7 @@ from django.http import HttpResponse
 import os
 import datetime
 import json
+import re
 
 from . import models
 
@@ -150,21 +151,61 @@ def setting(request):
 @csrf_protect
 def upload(request):
     urls = []
-    for k in request.FILES.keys():
-        img = request.FILES.get(k)
-        rootDir = datetime.datetime.now().strftime('%y%m%d')    # 以日期做为存储图片的最后一级目录
-        saveDir = os.getcwd() + '/blog/static/upload/{0}'.format(rootDir)
-        if not os.path.exists(saveDir):
-            os.makedirs(saveDir)            
-        
-        savePath = os.path.join(saveDir, img.name)
-        with open(savePath, 'wb+') as p:
-            for data in img.chunks():
-                p.write(data)
+    try:
+        for k in request.FILES.keys():
+            img = request.FILES.get(k)
+            rootDir = datetime.datetime.now().strftime('%y%m%d')    # 以日期做为存储图片的最后一级目录
+            saveDir = os.getcwd() + '/blog/static/upload/{0}'.format(rootDir)
+            if not os.path.exists(saveDir):
+                os.makedirs(saveDir)
 
-        url = "/static/upload/{0}/{1}".format(rootDir, img.name)
-        urls.append(url)    
+            savePath = os.path.join(saveDir, img.name)
+            with open(savePath, 'wb+') as p:
+                for data in img.chunks():
+                    p.write(data)
 
-    return HttpResponse(json.dumps({'errno': 0, 'data': urls}), content_type="application/json")
+            url = "/static/upload/{0}/{1}".format(rootDir, img.name)
+            urls.append(url)
+
+        return HttpResponse(json.dumps({'errno': 0, 'data': urls}), content_type="application/json")
+    except IOError as err:
+        return HttpResponse(json.dumps({'errno': 1, 'data': [], 'error': err}), content_type="application/json")
+
+
+@csrf_protect
+def savePost(request):
+    title = request.POST.get('title')
+    content = request.POST.get('content')
+    categories = request.POST.get('category')
+    tags = request.POST.get('tag')
+
+    reg = re.search(r'<img\s+src="(?P<url>.*?)"', content)
+
+    try:
+        post = models.Post()
+        post.Title = title
+        post.Content = content
+        post.CreateTime = datetime.datetime.now()
+        post.CanComment = True
+        post.Banner = "" if (reg is None) else reg.group(1)
+        post.Summary = content
+        post.User = request.user
+        post.save()
+
+        if categories is not None:
+            for c in json.loads(categories):
+                post.Categories.add(c)
+
+        if tags is not None:
+            for t in json.loads(tags):
+                post.Tags.add(t)
+
+        post.save()
+
+        return HttpResponse(json.dumps({'result': True}))
+    except Exception as err:
+        return HttpResponse(json.dumps({'result': False, 'err': '保存数据时发生异常！Err:{0}'.format(err)}))
+
+
 
 

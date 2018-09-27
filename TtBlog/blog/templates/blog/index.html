@@ -13,7 +13,7 @@
       <!-- Blog Post -->
       <div class="post">
         {% if p.Banner != None and p.Banner != '' %}
-          <a href="/post/{{p.Id}}"><img class="post-img" src="{{p.Banner}}}" alt="post image" /></a>
+          <a href="/post/{{p.Id}}"><img class="post-img" src="{{p.Banner}}" alt="post image" /></a>
         {% else %}
           <a href="/post/{{p.Id}}"><img class="post-img" src="http://placehold.it/750x300" alt="post image" /></a>
         {% endif %}
@@ -38,7 +38,10 @@
             <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.Nickname}}</a>
           </div>
           <p class="post-summary">
-            {{p.Content}}
+            {% autoescape off %}
+              {{ p.Content }}
+            {% endautoescape %}
+
           </p>
           <a href="/post/{{p.Id}}" class="btn btn-default">查看详细 >></a>
         </div>            

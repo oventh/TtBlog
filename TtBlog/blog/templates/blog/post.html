@@ -29,7 +29,9 @@
                     <b style="margin-left:10px;">作者：</b><a href="#">{{post.User.Nickname}}</a>
                 </div>
                 <div class="post-content">
-                    {{post.Content}}
+                    {% autoescape off %}
+                        {{ post.Content }}
+                    {% endautoescape %}
                 </div>
             </div>
         </div>

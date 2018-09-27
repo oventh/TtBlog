@@ -27,6 +27,7 @@ urlpatterns = [
     path('dologin', include("blog.urls")),
     path('logout', include("blog.urls")),
     path('manage/upload', include("blog.urls")),
+    path('manage/savePost', include("blog.urls")),
 
     path('admin/', admin.site.urls),
     

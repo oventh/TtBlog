@@ -14,13 +14,13 @@ class Post(models.Model):
     Id = models.AutoField(primary_key=True)
     User = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     Title = models.CharField(max_length=100, null=False)
-    Banner = models.CharField(max_length=500, null=False)
+    Banner = models.CharField(max_length=500, null=True)
     Summary = models.CharField(max_length=300, null=True)
     Content = models.TextField(null=False)
     CreateTime = models.DateTimeField(null=False)
     CanComment = models.BooleanField(null=False)
     Categories = models.ManyToManyField("Category")
-    Tags = models.ManyToManyField("Tag")
+    Tags = models.ManyToManyField("Tag", null=True)
 
 
 class Category(models.Model):
