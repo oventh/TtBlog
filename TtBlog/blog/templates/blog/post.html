@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <div class="post">            
             <div class="post-body">
                 <div class="post-title">{{post.Title}}</div>
@@ -26,7 +26,7 @@
                     {% endif %}
                     {% endfor %}
                     <b style="margin-left:10px;">时间：</b>{{post.CreateTime| date:'Y/m/d H:i'}}
-                    <b style="margin-left:10px;">作者：</b><a href="#">{{post.User.Nickname}}</a>
+                    <b style="margin-left:10px;">作者：</b><a href="#">{{post.User.first_name}} {{post.User.last_name}}</a>
                 </div>
                 <div class="post-content">
                     {% autoescape off %}
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
 
         <div class="widget">
             <div class="widget-title">最新发布</div>

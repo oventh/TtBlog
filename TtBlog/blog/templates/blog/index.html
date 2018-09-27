@@ -7,7 +7,7 @@
 
 <div class="row">    
     <!-- Blog Entries Column -->
-    <div class="col-md-8">      
+    <div class="col-md-9">
       
       {% for p in posts %}
       <!-- Blog Post -->
@@ -35,11 +35,11 @@
               {% endif %}
             {% endfor %}
             <b style="margin-left:10px;">时间：</b>{{p.CreateTime| date:'Y/m/d H:i'}}
-            <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.Nickname}}</a>
+            <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.first_name}} {{p.User.last_name}}</a>
           </div>
           <p class="post-summary">
             {% autoescape off %}
-              {{ p.Content }}
+              {{ p.Summary }}
             {% endautoescape %}
 
           </p>
@@ -74,7 +74,7 @@
     </div>
 
     <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
+    <div class="col-md-3">
 
       <!-- Search Widget -->
       <div class="widget">

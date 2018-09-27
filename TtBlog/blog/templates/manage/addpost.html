@@ -22,6 +22,10 @@
                 <div id="divContent" style="border: 1px #ccc solid; height:500px;"></div>
             </div>
             <div class="form-group">
+                <label>简介</label>
+                <textarea id="txtSummary" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group">
                 <p style="font-weight:bold;">分类</p>
 
                 {% for c in categories %}
@@ -67,6 +71,7 @@
     function sumbit() {
         var title = $("#inptTitle").val();
         var content = editor.txt.html();
+        var summary = $("#txtSummary").val();
         var cids = [], tids = [];
 
         $("input[name='category']:checked").each(function () {
@@ -79,14 +84,22 @@
         $.post("/manage/savePost",{
             title: title,
             content: content,
+            summary: summary,
             category: JSON.stringify(cids),
             tag: JSON.stringify(tids),
             csrfmiddlewaretoken: '{{csrf_token}}'
         }, function (result) {
             if(result.result == true){
-                window.href.src = "/manage/content";
+
+                layer.confirm('文章保存已成功！', {
+                  btn: ['继续添加','返回'] //按钮
+                }, function(){
+                  window.location.href = "/manage/addpost";
+                }, function(){
+                    window.location.href = "/manage/content";
+                });
             } else{
-                alert("保存文章时发生错误，原因：{0}".format(result.err))
+                layer.alert("保存文章时发生错误，原因：{0}".format(result.err))
             }
         }, "JSON");
     }

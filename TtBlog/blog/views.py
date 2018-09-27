@@ -176,6 +176,7 @@ def upload(request):
 def savePost(request):
     title = request.POST.get('title')
     content = request.POST.get('content')
+    summary = request.POST.get('summary')
     categories = request.POST.get('category')
     tags = request.POST.get('tag')
 
@@ -188,7 +189,7 @@ def savePost(request):
         post.CreateTime = datetime.datetime.now()
         post.CanComment = True
         post.Banner = "" if (reg is None) else reg.group(1)
-        post.Summary = content
+        post.Summary = summary
         post.User = request.user
         post.save()
 
