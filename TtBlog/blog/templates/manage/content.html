@@ -12,6 +12,7 @@
 
     <div class="row">
         <div class="col-md-12" style="text-align:right;">
+            <a class="btn btn-success" ms-click="query(1)" style="margin-right: 10px;">刷新列表</a>
             <a class="btn btn-primary" href="/manage/addpost">添加文章</a>
         </div>
     </div>
@@ -29,19 +30,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for p in posts %}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td>{{p.Title}}</td>
-                    <td><a href='{{p.Banner}}'><i class="fa fa-image"></i></a></td>
-                    <td>{{p.CreateTime | date:'Y/m/d H:i'}}</td>
-                    <td>{{p.User.first_name}} {{p.User.last_name}}</td>
+
+                <tr ms-for="($index, el) in @posts">
+                    <td>{? $index + 1 ?}</td>
+                    <td>{? el.Title ?}</td>
+
+                    <td ms-if="el.Banner"><a ms-attr='{ href: el.Banner }' target="_blank"><i class="fa fa-image"></i></a></td>
+                    <td ms-if="!el.Banner"><i class="fa fa-image"></i></td>
+
+                    <td>{? el.CreateTime ?}</td>
+                    <td>{? el.User.first_name  el.User.last_name ?}</td>
                     <td>
-                        <a class="btn btn-success btn-sm" href="/manage/editpost/{{p.Id}}">编辑</a>&nbsp;
-                        <a class="btn btn-danger btn-sm" ms-click="remove('{{p.Id}}')">删除</a>
+                        <a class="btn btn-success btn-sm" ms-attr="{ href: '/manage/editpost/' + el.Id }" style="margin-right: 5px;">编辑</a>&nbsp;
+                        <a class="btn btn-danger btn-sm" ms-click="remove('el.Id')">删除</a>
                     </td>
                 </tr>
-                {% endfor %}
+
                 </tbody>
             </table>
         </div>
@@ -51,23 +55,18 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
-                        <a href="/manage/content?page=0" aria-label="Previous">
+                        <a aria-label="Previous" ms-click="query(1)">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    {% if page > 0 %}
-                    <li><a href="/manage/content?page={{page|add:-1}}">上一页</a></li>
-                    {% else %}
-                    <li><a href="/manage/content?page={{page}}">上一页</a></li>
-                    {% endif %}
-
-                    {% if page < totalPage|add:-1 %}
-                    <li><a href="/manage/content?page={{page|add:1}}">下一页</a></li>
-                    {% else %}
-                    <li><a href="/manage/content?page={{page}}">下一页</a></li>
-                    {% endif %}
                     <li>
-                        <a href="/manage/content?page={{totalPage|add:-1}}" aria-label="Next">
+                        <a ms-click="prev">上一页</a>
+                    </li>
+                    <li>
+                        <a ms-click="next">下一页</a>
+                    </li>
+                    <li>
+                        <a aria-label="Next" ms-click="query(@totalPage)">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -82,5 +81,13 @@
 {% block script %}
 
 <script src="/static/manage/js/biz/post.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        vm.query(1);
+    })
+
+</script>
 
 {% endblock %}

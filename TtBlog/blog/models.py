@@ -12,7 +12,7 @@ class Site(models.Model):
 
 class Post(models.Model):
     Id = models.AutoField(primary_key=True)
-    User = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user")
     Title = models.CharField(max_length=100, null=False)
     Banner = models.CharField(max_length=500, null=True)
     Summary = models.CharField(max_length=300, null=True)
@@ -20,7 +20,7 @@ class Post(models.Model):
     CreateTime = models.DateTimeField(null=False)
     CanComment = models.BooleanField(null=False)
     Categories = models.ManyToManyField("Category")
-    Tags = models.ManyToManyField("Tag", null=True)
+    Tags = models.ManyToManyField("Tag")
 
 
 class Category(models.Model):

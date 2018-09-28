@@ -39,6 +39,7 @@ urlpatterns = [
     path('api/getcategories', include("blog.urls")),
     path('api/gettags', include("blog.urls")),
     path('api/removepost', include("blog.urls")),
+    path('api/querypost', include("blog.urls")),
 
 
     # django 预留
