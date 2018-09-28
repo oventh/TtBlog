@@ -172,10 +172,23 @@ def upload(request):
         return HttpResponse(json.dumps({'errno': 1, 'data': [], 'error': err}), content_type="application/json")
 
 
+def getCategories(request):
+
+    categories = models.Category.objects.all().values()
+    return HttpResponse(json.dumps(list(categories)))
+
+
+def getTags(request):
+
+    tags = models.Tag.objects.all().values()
+    return HttpResponse(json.dumps(list(tags)))
+
+
 @csrf_protect
 def savePost(request):
     title = request.POST.get('title')
     content = request.POST.get('content')
+    summary = request.POST.get('summary')
     categories = request.POST.get('category')
     tags = request.POST.get('tag')
 
@@ -188,7 +201,7 @@ def savePost(request):
         post.CreateTime = datetime.datetime.now()
         post.CanComment = True
         post.Banner = "" if (reg is None) else reg.group(1)
-        post.Summary = content
+        post.Summary = summary
         post.User = request.user
         post.save()
 
@@ -207,5 +220,23 @@ def savePost(request):
         return HttpResponse(json.dumps({'result': False, 'err': '保存数据时发生异常！Err:{0}'.format(err)}))
 
 
+def removePost(request):
+    id = request.GET.get('id')
+    if id is None:
+        return HttpResponse(json.dumps({'result': False, 'err': '调用方法缺少必要的参数！'}))
+
+    post = models.Post.objects.get(Id=id)
+    if post is None:
+        return HttpResponse(json.dumps({'result': False, 'err': '未找到相关的文章！'}))
+
+    post.delete()
+    return HttpResponse(json.dumps({'result': True}))
+
+
+def editPost(request, id):
+    if id is None:
+        return HttpResponse(json.dumps({'result': False, 'error': '调用方法缺少必要的参数！'}))
+
+    return render(request, 'manage/addpost.html', {'id': id})
 
 

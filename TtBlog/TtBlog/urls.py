@@ -18,17 +18,30 @@ from django.urls import path, include
 
 
 urlpatterns = [
+    # 前台展示页面路由
     path("", include("blog.urls")),
     path("post/<int:id>", include("blog.urls")),
-    path("manage/", include("blog.urls")),
-    path("manage/content", include("blog.urls")),
-    path('manage/addPost', include("blog.urls")),
     path('login', include("blog.urls")),
     path('dologin', include("blog.urls")),
     path('logout', include("blog.urls")),
-    path('manage/upload', include("blog.urls")),
-    path('manage/savePost', include("blog.urls")),
 
+
+    # 后台管理页面路由
+    path("manage/", include("blog.urls")),
+    path("manage/content", include("blog.urls")),
+    path('manage/addpost', include("blog.urls")),
+    path('manage/editpost', include("blog.urls")),
+
+
+    # 数据处理接口路由
+    path('api/upload', include("blog.urls")),
+    path('api/savepost', include("blog.urls")),
+    path('api/getcategories', include("blog.urls")),
+    path('api/gettags', include("blog.urls")),
+    path('api/removepost', include("blog.urls")),
+
+
+    # django 预留
     path('admin/', admin.site.urls),
     
 ]

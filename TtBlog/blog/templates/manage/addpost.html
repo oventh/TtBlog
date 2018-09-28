@@ -9,12 +9,12 @@
     <!-- /.col-lg-12 -->
 </div>
 
-<div class="row">
+<div class="row" ms-controller="post">
     <div class="col-md-12">
         <form>
             <div class="form-group">
                 <label>标题</label>
-                <input id="inptTitle" class="form-control" maxlength="100" placeholder="标题" type="text" />
+                <input ms-duplex="title" class="form-control" maxlength="100" placeholder="标题" type="text" />
             </div>
             <div class="form-group">
                 <label>内容</label>
@@ -22,25 +22,25 @@
                 <div id="divContent" style="border: 1px #ccc solid; height:500px;"></div>
             </div>
             <div class="form-group">
+                <label>简介</label>
+                <textarea ms-duplex="summary" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group">
                 <p style="font-weight:bold;">分类</p>
-
-                {% for c in categories %}
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="category" value="{{c.Id}}" /> {{c.Name}}
+                <label class="checkbox-inline" ms-for="el in @categories">
+                    <input type="checkbox" ms-attr="{ value: el.Id }" ms-click="checkedCategory" /> {?@el.Name?}
                 </label>
-                {% endfor %}
             </div>
             <div class="form-group">
                 <p style="font-weight:bold;">标签</p>
 
-                {% for t in tags %}
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="tag" value="{{t.Id}}" /> {{t.Name}}
+                <label class="checkbox-inline" ms-for="el in @tags">
+                    <input type="checkbox" ms-attr="{ value: el.Id }" ms-click="checkedTag" /> {?@el.Name?}
                 </label>
-                {% endfor %}
+
             </div>
             <div class="form-group" style="text-align:center;">
-                <button class="btn btn-primary" type="button" onclick="sumbit()">保存文章</button>
+                <button class="btn btn-primary" type="button" ms-click="save">保存文章</button>
             </div>
             {% csrf_token %}
         </form>
@@ -54,42 +54,26 @@
 
 <script src="/static/manage/vendor/wangEditor/wangEditor.js"></script>
 
+<script src="/static/manage/js/biz/post.js"></script>
+
 <script type='text/javascript'>
     var E = window.wangEditor
     var editor = new E('#divToolbar', '#divContent')
-    editor.customConfig.uploadImgServer = "/manage/upload"
+    editor.customConfig.uploadImgServer = "/api/upload"
     editor.customConfig.uploadImgParams = {
         csrfmiddlewaretoken: '{{csrf_token}}'
     }
-    editor.create()
+    editor.create();
 
+    $(function () {
 
-    function sumbit() {
-        var title = $("#inptTitle").val();
-        var content = editor.txt.html();
-        var cids = [], tids = [];
+        vm.id = '{{id}}';
+        vm.csrfmiddlewaretoken = '{{csrf_token}}';
 
-        $("input[name='category']:checked").each(function () {
-            cids.push($(this).val());
-        });
-        $("input[name='tag']:checked").each(function () {
-            tids.push($(this).val());
-        })
+        vm.getCategories();
+        vm.getTags();
+    });
 
-        $.post("/manage/savePost",{
-            title: title,
-            content: content,
-            category: JSON.stringify(cids),
-            tag: JSON.stringify(tids),
-            csrfmiddlewaretoken: '{{csrf_token}}'
-        }, function (result) {
-            if(result.result == true){
-                window.href.src = "/manage/content";
-            } else{
-                alert("保存文章时发生错误，原因：{0}".format(result.err))
-            }
-        }, "JSON");
-    }
 </script>
 
 {% endblock %}
