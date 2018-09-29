@@ -1,6 +1,7 @@
 var vm = avalon.define({
     $id: 'post',
 
+    // post edit
     id: '',
     title: '',
     summary: '',
@@ -12,6 +13,13 @@ var vm = avalon.define({
 
     selectedCategories: [],
     selectedTags: [],
+
+    //post query
+    posts: [],
+    pageSize: 15,
+    pageIndex: 1,
+    totalRecord: 0,
+    totalPage: 0,
 
     getCategories: function () {
 
@@ -79,17 +87,45 @@ var vm = avalon.define({
     },
 
     remove: function (id) {
-        if(id == '')
+        layer.confirm('你确定要删除当前选中的文章吗？', {
+            btn: ['确定', '返回']
+        }, function () {
+            $.getJSON('/api/removepost', {
+                id: id,
+                stamp: Date().toLocaleString()
+            }, function (res) {
+                if (res.result)
+                    layer.alert("删除文章已成功！");
+                else
+                    layer.alert("删除文章失败，原因：", res.err);
+            })
+        }, function () {
             return;
+        });
+    },
 
-        $.getJSON('/api/removepost',{
-            id: id,
+    query: function (page) {
+
+        vm.pageIndex = page;
+
+        $.getJSON('/api/querypost',{
+            pageIndex: vm.pageIndex,
+            pageSize: vm.pageSize,
             stamp: Date().toLocaleString()
         }, function (res) {
-            if(res.result)
-                layer.alert("删除文章已成功！");
-            else
-                layer.alert("删除文章失败，原因：", res.err);
+             vm.posts = res.result;
+             vm.totalPage = res.totalPage;
+             vm.totalRecord = res.total;
         })
     },
+
+    prev: function () {
+        vm.pageIndex = vm.pageIndex > 1 ? vm.pageIndex -1 : 1;
+        vm.query(vm.pageIndex);
+    },
+
+    next: function () {
+        vm.pageIndex = vm.pageIndex < vm.totalPage ? vm.pageIndex + 1: vm.totalPage;
+        vm.query(vm.pageIndex);
+    }
 })

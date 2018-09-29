@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28cbe96a-5f7b-46c9-8a2e-7a6c698eeddf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TtBlog/blog/static/js/avalon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/TtBlog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/TtBlog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/TtBlog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/TtBlog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/TtBlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/TtBlog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/TtBlog/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/TtBlog/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/js/npm.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/bootstrap/js/npm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/js/bootstrap-wysiwyg.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/js/bootstrap-wysiwyg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/fonts/w-e-icon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/fonts/w-e-icon.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/blog/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/blog/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/blog/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/addpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/addpost.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/comment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/setting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="28cbe96a-5f7b-46c9-8a2e-7a6c698eeddf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/TtBlog/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="777">
-              <caret line="235" column="26" lean-forward="true" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
+              <caret line="235" column="26" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <marker date="1538132743000" expanded="true" signature="4962:5059" ph="..." />
@@ -144,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="39" column="103" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+            <state relative-caret-position="821">
+              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="e#1473#1479#0" expanded="true" />
@@ -213,7 +160,7 @@
         <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="553">
-              <caret line="72" column="61" lean-forward="true" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
+              <caret line="72" column="61" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -603,7 +550,7 @@
     <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
-          <caret line="72" column="61" lean-forward="true" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
+          <caret line="72" column="61" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -641,7 +588,7 @@
     <entry file="file://$PROJECT_DIR$/TtBlog/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
-          <caret line="235" column="26" lean-forward="true" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
+          <caret line="235" column="26" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <marker date="1538132743000" expanded="true" signature="4962:5059" ph="..." />
@@ -652,8 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="39" column="103" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+        <state relative-caret-position="821">
+          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="e#1473#1479#0" expanded="true" />

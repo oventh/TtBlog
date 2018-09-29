@@ -1,7 +1,7 @@
 # coding:utf-8
 
 from django.urls import path
-from . import views
+from . import views, apis
 
 
 urlpatterns = [
@@ -22,11 +22,12 @@ urlpatterns = [
 
 
     # 数据处理接口路由
-    path('api/upload', views.upload, name='upload'),
-    path('api/getcategories', views.getCategories, name='getCategories'),
-    path('api/gettags', views.getTags, name='getTags'),
-    path('api/savepost', views.savePost, name='savePost'),
-    path('api/removepost', views.removePost, name='removePost'),
+    path('api/upload', apis.upload, name='upload'),
+    path('api/getcategories', apis.getCategories, name='getCategories'),
+    path('api/gettags', apis.getTags, name='getTags'),
+    path('api/savepost', apis.savePost, name='savePost'),
+    path('api/removepost', apis.removePost, name='removePost'),
+    path('api/querypost', apis.queryPost, name='queryPost'),
 
 
 
