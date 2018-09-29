@@ -1,17 +1,14 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-import django.contrib.auth
+from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, JsonResponse
-from django.core import serializers
-from django.conf import settings
 import os
 import datetime
 import json
 import re
 
 from . import models
+from .utility import DateEncoder
 
 
 @csrf_protect
@@ -40,34 +37,51 @@ def upload(request):
 
 @csrf_protect
 def savePost(request):
+    id = request.POST.get('id')
     title = request.POST.get('title')
     content = request.POST.get('content')
     summary = request.POST.get('summary')
     categories = request.POST.get('category')
     tags = request.POST.get('tag')
 
+
+    # 自动从文章正文中查找图片，将第一张图片作为文章的Banner图
     reg = re.search(r'<img\s+src="(?P<url>.*?)"', content)
 
     try:
-        post = models.Post()
-        post.Title = title
-        post.Content = content
-        post.CreateTime = datetime.datetime.now()
-        post.CanComment = True
-        post.Banner = "" if (reg is None) else reg.group(1)
-        post.Summary = summary
-        post.User = request.user
-        post.save()
 
-        if categories is not None:
-            for c in json.loads(categories):
-                post.Categories.add(c)
+        if id is None:
+            post = models.Post()
+            post.Title = title
+            post.Content = content
+            post.CreateTime = datetime.datetime.now()
+            post.CanComment = True
+            post.Banner = "" if (reg is None) else reg.group(1)
+            post.Summary = summary
+            post.User = request.user
+            post.save()
 
-        if tags is not None:
-            for t in json.loads(tags):
-                post.Tags.add(t)
+            if categories is not None:
+                for c in json.loads(categories):
+                    post.Categories.add(c)
 
-        post.save()
+            if tags is not None:
+                for t in json.loads(tags):
+                    post.Tags.add(t)
+            post.save()
+
+        else:
+            post = models.Post.objects.get(Id=id)
+            post.Title = title
+            post.Content = content
+            post.CanComment = True
+            post.Banner = "" if (reg is None) else reg.group(1)
+            post.Summary = summary
+            post.save()
+
+            post.Categories.set(json.loads(categories))
+            post.Tags.set(json.loads(tags))
+            post.save()
 
         return HttpResponse(json.dumps({'result': True}))
     except Exception as err:
@@ -107,7 +121,16 @@ def queryPost(request):
     endNum = beginNum + pageSize
 
     count = models.Post.objects.count()
-    posts = models.Post.objects.order_by('-Id')[beginNum:endNum].values('Id', 'User__user')
+    posts = models.Post.objects.order_by('-Id')[beginNum:endNum].values()
+
+    # 理想状态是一条语句把关联的User对象也查询出来，不过查了半天，只有下面这种解决办法。。。回头再找找！！
+    for p in posts:
+        user = User.objects.get(id=p['User_id'])
+        if user is not None:
+            p['username'] = user.username
+            p['first_name'] = user.first_name
+            p['last_name'] = user.last_name
+
 
     totalPage = 0
     if count % pageSize == 0:
@@ -118,3 +141,22 @@ def queryPost(request):
     # json = serializers.serialize('json', posts)
 
     return JsonResponse({'result': list(posts), 'total': count, 'totalPage': totalPage})
+
+
+def getPost(request):
+    id = request.GET.get('id')
+    if id is None:
+        return JsonResponse({'result': False, 'err': '调用方法缺少必要的参数！'})
+
+    post = models.Post.objects.get(Id=id)
+    cids, tids = [], []
+    for c in post.Categories.all().values('Id'):
+        cids.append(c['Id'])
+
+    for t in post.Tags.all().values('Id'):
+        tids.append(t['Id'])
+
+    temp = {'Id': post.Id, 'Title': post.Title, 'Content': post.Content, 'Summary': post.Summary,
+            'CanComment': post.CanComment, 'cids': cids, 'tids': tids}
+
+    return JsonResponse({'result': True, 'data': temp})

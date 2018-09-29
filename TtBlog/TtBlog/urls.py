@@ -18,6 +18,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
+
     # 前台展示页面路由
     path("", include("blog.urls")),
     path("post/<int:id>", include("blog.urls")),
@@ -40,6 +41,7 @@ urlpatterns = [
     path('api/gettags', include("blog.urls")),
     path('api/removepost', include("blog.urls")),
     path('api/querypost', include("blog.urls")),
+    path('api/getpost', include("blog.urls")),
 
 
     # django 预留

@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/savepost', apis.savePost, name='savePost'),
     path('api/removepost', apis.removePost, name='removePost'),
     path('api/querypost', apis.queryPost, name='queryPost'),
+    path('api/getpost', apis.getPost, name='getPost'),
 
 
 

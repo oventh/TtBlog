@@ -21,6 +21,7 @@ var vm = avalon.define({
     totalRecord: 0,
     totalPage: 0,
 
+
     getCategories: function () {
 
         $.getJSON('/api/getcategories', {}, function (result) {
@@ -62,8 +63,28 @@ var vm = avalon.define({
         }
     },
 
+    get: function(){
+
+        if(vm.id == '')
+            return;
+
+        $.getJSON('/api/getpost', {
+            id: vm.id,
+            stamp: Date().toLocaleLowerCase()
+        }, function (res) {
+            if(res.data != null){
+                vm.title = res.data.Title;
+                vm.summary = res.data.Summary;
+                vm.selectedTags = res.data.cids;
+                vm.selectedCategories = res.data.tids;
+                editor.txt.html(res.data.Content);
+            }
+        })
+    },
+
     save: function () {
         $.post("/api/savepost", {
+            id: vm.id,
             title: vm.title,
             content: editor.txt.html(),
             summary: vm.summary,
@@ -81,7 +102,7 @@ var vm = avalon.define({
                     window.location.href = "/manage/content";
                 });
             } else {
-                layer.alert("保存文章时发生错误，原因：{0}".format(result.err))
+                layer.alert("保存文章时发生错误，原因：" + result.err)
             }
         }, "JSON");
     },

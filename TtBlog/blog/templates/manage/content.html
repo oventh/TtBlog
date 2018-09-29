@@ -33,13 +33,13 @@
 
                 <tr ms-for="($index, el) in @posts">
                     <td>{? $index + 1 ?}</td>
-                    <td>{? el.Title ?}</td>
+                    <td><a ms-attr="{href: '/post/' + el.Id}" target="_blank">{? el.Title ?}</a> </td>
 
                     <td ms-if="el.Banner"><a ms-attr='{ href: el.Banner }' target="_blank"><i class="fa fa-image"></i></a></td>
                     <td ms-if="!el.Banner"><i class="fa fa-image"></i></td>
 
                     <td>{? el.CreateTime ?}</td>
-                    <td>{? el.User.first_name  el.User.last_name ?}</td>
+                    <td>{? el.first_name ?} {? el.last_name ?}</td>
                     <td>
                         <a class="btn btn-success btn-sm" ms-attr="{ href: '/manage/editpost/' + el.Id }" style="margin-right: 5px;">编辑</a>&nbsp;
                         <a class="btn btn-danger btn-sm" ms-click="remove('el.Id')">删除</a>
