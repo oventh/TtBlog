@@ -155,3 +155,13 @@ def editPost(request, id):
     return render(request, 'manage/addpost.html', {'id': id})
 
 
+def category(request):
+
+    return render(request, 'manage/category.html')
+
+
+def comment(request):
+
+    return render(request, 'manage/comment.html')
+
+

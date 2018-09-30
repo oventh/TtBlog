@@ -11,7 +11,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12" style="text-align:right;">
+        <div class="col-md-12" >
             <a class="btn btn-success" ms-click="query(1)" style="margin-right: 10px;">刷新列表</a>
             <a class="btn btn-primary" href="/manage/addpost">添加文章</a>
         </div>
@@ -42,7 +42,7 @@
                     <td>{? el.first_name ?} {? el.last_name ?}</td>
                     <td>
                         <a class="btn btn-success btn-sm" ms-attr="{ href: '/manage/editpost/' + el.Id }" style="margin-right: 5px;">编辑</a>&nbsp;
-                        <a class="btn btn-danger btn-sm" ms-click="remove('el.Id')">删除</a>
+                        <a class="btn btn-danger btn-sm" ms-click="remove(el.Id)">删除</a>
                     </td>
                 </tr>
 

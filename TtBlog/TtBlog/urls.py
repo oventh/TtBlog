@@ -32,6 +32,8 @@ urlpatterns = [
     path("manage/content", include("blog.urls")),
     path('manage/addpost', include("blog.urls")),
     path('manage/editpost', include("blog.urls")),
+    path('manage/category', include("blog.urls")),
+    path('manage/comment', include("blog.urls")),
 
 
     # 数据处理接口路由

@@ -50,7 +50,7 @@ def savePost(request):
 
     try:
 
-        if id is None:
+        if id is None or id == '':
             post = models.Post()
             post.Title = title
             post.Content = content
@@ -61,14 +61,8 @@ def savePost(request):
             post.User = request.user
             post.save()
 
-            if categories is not None:
-                for c in json.loads(categories):
-                    post.Categories.add(c)
-
-            if tags is not None:
-                for t in json.loads(tags):
-                    post.Tags.add(t)
-            post.save()
+            post.Categories.set(json.loads(categories))
+            post.Tags.set(json.loads(tags))
 
         else:
             post = models.Post.objects.get(Id=id)
@@ -81,7 +75,6 @@ def savePost(request):
 
             post.Categories.set(json.loads(categories))
             post.Tags.set(json.loads(tags))
-            post.save()
 
         return HttpResponse(json.dumps({'result': True}))
     except Exception as err:
@@ -91,13 +84,29 @@ def savePost(request):
 def getCategories(request):
 
     categories = models.Category.objects.all().values()
-    return HttpResponse(json.dumps(list(categories)))
+    data = []
+    for c in categories:
+        data.append({
+            'Id': c['Id'],
+            'Name': c['Name'],
+            'Checked': False,
+        })
+
+    return HttpResponse(json.dumps(data))
 
 
 def getTags(request):
 
     tags = models.Tag.objects.all().values()
-    return HttpResponse(json.dumps(list(tags)))
+    data = []
+    for t in tags:
+        data.append({
+            'Id': t['Id'],
+            'Name': t['Name'],
+            'Checked': False
+        })
+
+    return HttpResponse(json.dumps(data))
 
 
 def removePost(request):

@@ -19,6 +19,8 @@ urlpatterns = [
     path('manage/content', views.content, name="content"),
     path('manage/addpost', views.addPost, name="addPost"),
     path('manage/editpost/<int:id>', views.editPost, name='editPost'),
+    path('manage/category', views.category, name='category'),
+    path('manage/comment', views.comment, name='comment'),
 
 
     # 数据处理接口路由

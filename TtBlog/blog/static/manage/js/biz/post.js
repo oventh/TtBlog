@@ -78,18 +78,51 @@ var vm = avalon.define({
                 vm.selectedTags = res.data.cids;
                 vm.selectedCategories = res.data.tids;
                 editor.txt.html(res.data.Content);
+
+                //选中文章相关的分类
+                if(res.data.cids != null && res.data.cids.length >0){
+                    for(let i=0;i<vm.categories.length;i++){
+                        for(let j=0;j<res.data.cids.length;j++){
+                            if(vm.categories[i].Id == res.data.cids[j])
+                                vm.categories[i].Checked = true;
+                        }
+                    }
+                }
+
+                if(res.data.tids != null && res.data.tids.length >0){
+                    for(let i=0;i<vm.tags.length;i++){
+                        for(let j=0;j<res.data.tids.length;j++){
+                            if(vm.tags[i].Id == res.data.tids[j])
+                                vm.tags[i].Checked = true;
+                        }
+                    }
+                }
             }
         })
     },
 
     save: function () {
+
+        let cids= [], tids= [];
+
+        for(let i=0; i<vm.categories.length; i++){
+            if(vm.categories[i].Checked)
+                cids.push(vm.categories[i].Id);
+        }
+
+        for(let i=0;i<vm.tags.length;i++){
+            if(vm.tags[i].Checked)
+                tids.push(vm.tags[i].Id);
+        }
+
+
         $.post("/api/savepost", {
             id: vm.id,
             title: vm.title,
             content: editor.txt.html(),
             summary: vm.summary,
-            category: JSON.stringify(vm.selectedCategories),
-            tag: JSON.stringify(vm.selectedTags),
+            category: JSON.stringify(cids),
+            tag: JSON.stringify(tids),
             csrfmiddlewaretoken: vm.csrfmiddlewaretoken
         }, function (result) {
             if (result.result == true) {
