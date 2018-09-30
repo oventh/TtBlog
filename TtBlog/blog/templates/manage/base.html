@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>控制面板 - Tatta Blog</title>
+    <title>{% block title %}{% endblock %} - Tatta Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/static/manage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,11 +78,8 @@
                         <a href="/manage"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                     </li>
                     <li>
-                        <a href="/manage/content"><i class="fa fa-bar-chart-o fa-fw"></i> 内容管理</a>
+                        <a href="/manage/content"><i class="fa fa-bar-chart-o fa-fw"></i> 文章管理</a>
 
-                    </li>
-                    <li>
-                        <a href="/manage/category"><i class="fa fa-table fa-fw"></i> 分类管理</a>
                     </li>
                     <li>
                         <a href="/manage/comment"><i class="fa fa-edit fa-fw"></i> 评论管理</a>

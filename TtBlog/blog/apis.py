@@ -169,3 +169,24 @@ def getPost(request):
             'CanComment': post.CanComment, 'cids': cids, 'tids': tids}
 
     return JsonResponse({'result': True, 'data': temp})
+
+
+def saveCategory(request):
+    id = request.GET.get('id')
+    name = request.GET.get('name')
+
+    if name is None or name == '':
+        return JsonResponse({'result': False, 'err': '调用方法缺少必要的参数！'})
+
+    if id is None or id == '':
+
+        info = models.Category()
+        info.Name = name
+        info.save()
+    else:
+        info = models.Category.objects.get(Id=id)
+        info.Name = name
+        info.save()
+
+    return JsonResponse({'result': True})
+

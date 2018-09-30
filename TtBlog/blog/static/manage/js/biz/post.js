@@ -21,6 +21,17 @@ var vm = avalon.define({
     totalRecord: 0,
     totalPage: 0,
 
+    //category
+    isEditCategory: false,
+    editCategoryId: '',
+    editCategoryName: '',
+
+
+    //tag
+    isEditTag: false,
+    editTagId: '',
+    editTagName: '',
+
 
     getCategories: function () {
 
@@ -181,5 +192,68 @@ var vm = avalon.define({
     next: function () {
         vm.pageIndex = vm.pageIndex < vm.totalPage ? vm.pageIndex + 1: vm.totalPage;
         vm.query(vm.pageIndex);
+    },
+
+    // manage category function
+
+    manageCategory: function () {
+        vm.getCategories();
+        $("#divCategory").modal();
+    },
+
+    addCategory: function () {
+        vm.editCategoryId = '';
+        vm.editCategoryName = '';
+        vm.isEditCategory = true;
+    },
+
+    editCategory: function(el){
+        if(el == null)
+            return;
+
+        vm.editCategoryId = el.Id;
+        vm.editCategoryName = el.Name;
+        vm.isEditCategory = true;
+    },
+
+    cancelCategory: function(){
+
+        vm.isEditCategory = false;
+        vm.editCategoryId = '';
+        vm.editCategoryName = '';
+    },
+
+    removeCategory: function(id){
+
+
+    },
+
+    saveCategory: function () {
+
+    },
+
+    //tag functions
+
+    manageTag: function () {
+        vm.getTags();
+        $("#divTag").modal();
+    },
+
+    addTag: function () {
+        vm.isEditTag = true;
+        vm.editTagId = '';
+        vm.editTagName = '';
+    },
+
+    editTag: function(el){
+
+    },
+
+    removeTag: function(id){
+
+    },
+
+    saveTag: function () {
+
     }
 })
