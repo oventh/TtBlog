@@ -28,22 +28,26 @@ urlpatterns = [
 
 
     # 后台管理页面路由
-    path("manage/", include("blog.urls")),
-    path("manage/content", include("blog.urls")),
-    path('manage/addpost', include("blog.urls")),
-    path('manage/editpost', include("blog.urls")),
-    path('manage/category', include("blog.urls")),
-    path('manage/comment', include("blog.urls")),
+    path("manage/", include("manage.urls")),
+    path("manage/content", include("manage.urls")),
+    path('manage/addpost', include("manage.urls")),
+    path('manage/editpost', include("manage.urls")),
+    path('manage/category', include("manage.urls")),
+    path('manage/comment', include("manage.urls")),
 
 
     # 数据处理接口路由
-    path('api/upload', include("blog.urls")),
-    path('api/savepost', include("blog.urls")),
-    path('api/getcategories', include("blog.urls")),
-    path('api/gettags', include("blog.urls")),
-    path('api/removepost', include("blog.urls")),
-    path('api/querypost', include("blog.urls")),
-    path('api/getpost', include("blog.urls")),
+    path('api/upload', include("api.urls")),
+    path('api/savepost', include("api.urls")),
+    path('api/getcategories', include("api.urls")),
+    path('api/gettags', include("api.urls")),
+    path('api/removepost', include("api.urls")),
+    path('api/querypost', include("api.urls")),
+    path('api/getpost', include("api.urls")),
+    path('api/savecategory', include('api.urls')),
+    path('api/removecategory', include('api.urls')),
+    path('api/savetag', include('api.urls')),
+    path('api/removetag', include('api.urls')),
 
 
     # django 预留

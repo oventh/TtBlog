@@ -1,6 +1,6 @@
 {% extends "blog/base.html" %}
 
-{% block title %}{{site.Name}} - {{site.Summary}}{% endblock %}
+{% block title %}{{post.Title}} - {{site.Summary}}{% endblock %}
 {% block name %}{{site.Name}}{% endblock %}
 
 {% block content %}
@@ -45,15 +45,10 @@
     <div class="col-md-3">
 
         <div class="widget">
-            <div class="widget-title">最新发布</div>
+            <div class="widget-title">猜你喜欢</div>
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="list-unstyled">
-                        <li><a href="#">控制台</a></li>
-                        <li><a href="#">发布</a></li>
-                        <li><a href="#">更改密码</a></li>
-                        <li><a href="#">注销</a></li>
-                    </ul>
+                    
                 </div>
             </div>
         </div> <!-- Search Widget -->

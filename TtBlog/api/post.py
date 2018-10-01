@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, JsonResponse
 import os
@@ -7,8 +6,7 @@ import datetime
 import json
 import re
 
-from . import models
-from .utility import DateEncoder
+from blog import models
 
 
 @csrf_protect
@@ -43,7 +41,6 @@ def savePost(request):
     summary = request.POST.get('summary')
     categories = request.POST.get('category')
     tags = request.POST.get('tag')
-
 
     # 自动从文章正文中查找图片，将第一张图片作为文章的Banner图
     reg = re.search(r'<img\s+src="(?P<url>.*?)"', content)
@@ -187,6 +184,58 @@ def saveCategory(request):
         info = models.Category.objects.get(Id=id)
         info.Name = name
         info.save()
+
+    return JsonResponse({'result': True})
+
+
+def removeCategory(request):
+    id = request.GET.get('id')
+
+    if id is None or id == '':
+        return JsonResponse({'result': False, 'err': '调用方法缺少必要的参数！'})
+
+    info = models.Category.objects.get(Id=id)
+
+    if info is None:
+        return JsonResponse({'result': False, 'err': '未找到操作相关的对象！'})
+
+    info.delete()
+
+    return JsonResponse({'result': True})
+
+
+def saveTag(request):
+    id = request.GET.get('id')
+    name = request.GET.get('name')
+
+    if name is None or name == '':
+        return JsonResponse({'result': False, 'err': '调用方法缺少必要的参数！'})
+
+    if id is None or id == '':
+
+        tag = models.Tag()
+        tag.Name = name
+        tag.save()
+    else:
+        tag = models.Tag.objects.get(Id=id)
+        tag.Name = name
+        tag.save()
+
+    return JsonResponse({'result': True})
+
+
+def removeTag(request):
+    id = request.GET.get('id')
+
+    if id is None or id == '':
+        return JsonResponse({'result': False, 'err': '调用方法缺少必要的参数！'})
+
+    tag = models.Tag.objects.get(Id=id)
+
+    if tag is None:
+        return JsonResponse({'result': False, 'err': '未找到操作相关的对象！'})
+
+    tag.delete()
 
     return JsonResponse({'result': True})
 

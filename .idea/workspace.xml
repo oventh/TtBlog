@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28cbe96a-5f7b-46c9-8a2e-7a6c698eeddf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TtBlog/api/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TtBlog/templates/blog/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TtBlog/templates/manage/comment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TtBlog/templates/manage/setting.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/apis.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/apis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/TtBlog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/TtBlog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/TtBlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/TtBlog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/apis.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/api/post.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/blog/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/blog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/blog/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/blog/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/addpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/manage/addpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/manage/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/manage/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/manage/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/manage/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/templates/manage/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/templates/manage/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/api/comment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TtBlog/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/TtBlog/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,213 +34,82 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/TattaBlog$manage.coverage" NAME="manage Coverage Results" MODIFIED="1538300381679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TtBlog" />
+    <SUITE FILE_PATH="coverage/TattaBlog$manage.coverage" NAME="manage Coverage Results" MODIFIED="1538394725580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TtBlog" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1951380723">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="81" />
-          <entry key="html" value="3372" />
-          <entry key="js" value="2488" />
-          <entry key="py" value="6215" />
+          <entry key="dummy" value="4" />
+          <entry key="html" value="3537" />
+          <entry key="js" value="3369" />
+          <entry key="py" value="7861" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="3372" />
-          <entry key="JavaScript" value="2488" />
-          <entry key="Python" value="6296" />
+          <entry key="HTML" value="3537" />
+          <entry key="JavaScript" value="3369" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Python" value="7942" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="10" />
+          <entry key="html" value="13" />
           <entry key="js" value="8" />
           <entry key="pstat" value="2" />
-          <entry key="py" value="29" />
+          <entry key="py" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="10" />
+          <entry key="HTML" value="13" />
           <entry key="JavaScript" value="8" />
           <entry key="Profiler Session" value="2" />
-          <entry key="Python" value="29" />
+          <entry key="Python" value="62" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="671">
-                  <caret line="130" column="56" lean-forward="true" selection-start-line="130" selection-start-column="56" selection-end-line="130" selection-end-column="56" />
-                  <folding>
-                    <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#a#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#a#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                    <element signature="e#3382#3389#1" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-                    <element signature="e#4365#4372#1" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="453">
-                  <caret line="72" column="62" lean-forward="true" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="32">
-                  <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/urls.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-                  <folding>
-                    <element signature="e#16#44#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/urls.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="384">
-                  <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#630#662#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/addpost.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="592">
-                  <caret line="37" column="116" selection-start-line="37" selection-start-column="116" selection-end-line="37" selection-end-column="116" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#p#0;n#div#3;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#p#0;n#div#4;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-                  <folding>
-                    <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/apis.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="877">
-                  <caret line="190" column="41" lean-forward="true" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
-                  <folding>
-                    <element signature="e#0#43#0" expanded="true" />
-                    <marker date="1538307561000" expanded="true" signature="5079:5512" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="256">
-                  <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="713">
-                  <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TtBlog/blog/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -243,22 +129,35 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TtBlog/blog/admin.py" />
-        <option value="$PROJECT_DIR$/TtBlog/TtBlog/settings.py" />
         <option value="$PROJECT_DIR$/TtBlog/blog/models.py" />
-        <option value="$PROJECT_DIR$/TtBlog/blog/templates/blog/post.html" />
-        <option value="$PROJECT_DIR$/TtBlog/blog/templates/blog/index.html" />
         <option value="$PROJECT_DIR$/TtBlog/utility.py" />
         <option value="$PROJECT_DIR$/TtBlog/blog/templates/manage/addpost.html" />
-        <option value="$PROJECT_DIR$/TtBlog/blog/urls.py" />
-        <option value="$PROJECT_DIR$/TtBlog/blog/views.py" />
-        <option value="$PROJECT_DIR$/TtBlog/TtBlog/urls.py" />
         <option value="$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html" />
         <option value="$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html" />
         <option value="$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html" />
-        <option value="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" />
-        <option value="$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js" />
         <option value="$PROJECT_DIR$/TtBlog/blog/apis.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/templates/blog/base.html" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/templates/blog/index.html" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/templates/blog/post.html" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/comment/apis.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/post/views.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/comment/views.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/manage/apis.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/api/comment.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/api/urls.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/urls.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/manage/urls.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/api/post.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/manage/views.py" />
+        <option value="$PROJECT_DIR$/TtBlog/TtBlog/urls.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/admin.py" />
+        <option value="$PROJECT_DIR$/TtBlog/manage/views.py" />
+        <option value="$PROJECT_DIR$/TtBlog/api/post.py" />
+        <option value="$PROJECT_DIR$/TtBlog/api/urls.py" />
+        <option value="$PROJECT_DIR$/TtBlog/TtBlog/settings.py" />
+        <option value="$PROJECT_DIR$/TtBlog/blog/views.py" />
       </list>
     </option>
   </component>
@@ -318,50 +217,13 @@
               <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
               <item name="TattaBlog" type="462c0819:PsiDirectoryNode" />
               <item name="TtBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TattaBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="TtBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="manage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
               <item name="TattaBlog" type="462c0819:PsiDirectoryNode" />
               <item name="TtBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TattaBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="TtBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="biz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TattaBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="TtBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TattaBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="TtBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TattaBlog" type="b2602c69:ProjectViewProjectNode" />
@@ -385,6 +247,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/TtBlog/blog" />
+      <recent name="$PROJECT_DIR$/TtBlog" />
+      <recent name="$PROJECT_DIR$/TtBlog/TtBlog" />
+      <recent name="$PROJECT_DIR$/TtBlog/blog/api" />
+      <recent name="$PROJECT_DIR$/TtBlog/blog/manage" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/TtBlog/blog/templates/manage" />
@@ -473,12 +339,12 @@
     <frame x="0" y="23" width="2560" height="1346" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12907068" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13145353" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4952343" visible="true" weight="0.16108453" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4952343" weight="0.16108453" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49444002" weight="0.2137161" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,7 +353,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49960285" weight="0.3293461" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5047657" side_tool="true" weight="0.16108453" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4952343" weight="0.18819776" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4952343" weight="0.16905901" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4980143" weight="0.3293461" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -539,23 +405,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/manage/vendor/wangEditor/wangEditor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1045" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1583">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/runtime/lib/python3.7/site-packages/django/utils/decorators.py">
@@ -577,13 +429,6 @@
     <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/js/avalon.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/blog/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="119" column="44" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/runtime/lib/python3.7/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -598,44 +443,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/views.py">
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/manage/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2432">
-          <caret line="164" column="49" selection-start-line="164" selection-start-column="49" selection-end-line="164" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="32">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/blog/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-          <folding>
-            <element signature="e#16#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <element signature="e#630#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/addpost.html">
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/manage/addpost.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
           <caret line="37" column="116" selection-start-line="37" selection-start-column="116" selection-end-line="37" selection-end-column="116" />
@@ -649,24 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="72" column="62" lean-forward="true" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/category.html">
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/manage/category.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
@@ -681,20 +482,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/models.py">
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/manage/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="650">
+          <caret line="72" column="62" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/templates/manage/content.html">
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/blog/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="130" column="56" lean-forward="true" selection-start-line="130" selection-start-column="56" selection-end-line="130" selection-end-column="56" />
+        <state relative-caret-position="333">
+          <caret line="47" column="67" lean-forward="true" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/blog/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/blog/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/templates/manage/content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="50" column="88" lean-forward="true" selection-start-line="50" selection-start-column="88" selection-end-line="50" selection-end-column="88" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -708,13 +537,11 @@
             <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#3382#3389#1" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#4365#4372#1" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
@@ -724,20 +551,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js">
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/api/comment.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/manage/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
+        <state relative-caret-position="64">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TtBlog/blog/apis.py">
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="190" column="41" lean-forward="true" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
+        <state relative-caret-position="16">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/manage/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="40" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <marker date="1538307561000" expanded="true" signature="5079:5512" ph="..." />
+            <element signature="e#16#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/api/post.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#630#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/manage/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/static/manage/js/biz/post.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="278" column="26" lean-forward="true" selection-start-line="278" selection-start-column="26" selection-end-line="278" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/TtBlog/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TtBlog/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

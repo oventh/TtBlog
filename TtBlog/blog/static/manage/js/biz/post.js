@@ -224,12 +224,43 @@ var vm = avalon.define({
     },
 
     removeCategory: function(id){
+        if(id== '')
+            return;
 
+        $.getJSON('api/removecategory',{
+            id: id,
+            stamp: Date().toLocaleString()
+        }, function (res) {
+            if(res.result){
+                layer.alert('已删除分类！')
+                vm.isEditCategory = false;
+                vm.getCategories();
+            } else{
+                layer.alert('删除分类失改，原因：'+ res.err);
+            }
+        })
 
     },
 
     saveCategory: function () {
+        if(vm.editCategoryName == ''){
+            layer.alert('请填写必要的信息！');
+            return;
+        }
 
+        $.getJSON('api/savecategory',{
+            id: vm.editCategoryId,
+            name: vm.editCategoryName
+        }, function (res) {
+            if(res.result){
+                layer.alert('保存分类信息已成功！')
+
+                vm.isEditCategory = false;
+                vm.getCategories();
+            } else{
+                layer.alert('保存分类信息失改，原因：' + res.err);
+            }
+        })
     },
 
     //tag functions
@@ -246,14 +277,52 @@ var vm = avalon.define({
     },
 
     editTag: function(el){
-
+        vm.isEditTag = true;
+        vm.editTagName = el.Name;
+        vm.editTagId = el.Id;
     },
 
     removeTag: function(id){
+        if(id == '')
+            return;
 
+        $.getJSON('api/removetag',{
+            id: id,
+            stamp: Date().toLocaleString()
+        }, function (res) {
+            if(res.result){
+                layer.alert('删除标签信息已成功！')
+                vm.isEditTag = false;
+                vm.getTags();
+            } else {
+                layer.alert('删除标签信息失败，原因：'+ res.err);
+            }
+        })
     },
 
     saveTag: function () {
+        if(vm.editTagName == ''){
+            layer.alert('请填写必要的信息！');
+            return;
+        }
 
+        $.getJSON('api/savetag',{
+            id: vm.editTagId,
+            name: vm.editTagName,
+        }, function (res) {
+            if(res.result){
+                layer.alert('保存标签信息已成功！');
+                vm.isEditTag = false;
+                vm.getTags();
+            } else {
+                layer.alert('保存标签信息失败，原因：' + res.err);
+            }
+        })
+    },
+
+    cancelTag: function () {
+        vm.isEditTag = false;
+        vm.editTagName = '';
+        vm.editTagId = '';
     }
 })

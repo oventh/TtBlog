@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-static-top navbar-blue">
+    <div class="container">
+        <a class="navbar-brand" href="/">{% block name %}{% endblock %}</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav navbar-right" style="margin-right:100px;">
+                <li class="active">
+                    <a href="/">首页
+                    </a>
+                </li>
+                <li>
+                    <a href="#">归档</a>
+                </li>
+                <li>
+                    <a href="#">工具</a>
+                </li>
+                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">管理<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/manage">控制台</a></li>
+                        <li><a href="/manage/content">内容管理</a></li>
+                        <li><a href="/manage/comment">评论管理</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">更改密码</a></li>
+                        <li><a href="#">退出登陆</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <div class="row" style="margin-top:50px;">
+        <div class="col-md-12">
+            <p class="text-center text-white">Copyright &copy; Tatta Blackborad 2018</p>
+        </div>
+        <!-- /.container -->
+    </div>
+</div>
+<!-- /.container -->
+
+
+<script src="/static/js/jquery.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

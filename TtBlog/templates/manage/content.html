@@ -28,7 +28,7 @@
                     <th style="width:50px;">#</th>
                     <th>标题</th>
                     <th style="width:80px;">主图</th>
-                    <th style="width:150px;">创建时间</th>
+                    <th style="width:200px;">创建时间</th>
                     <th style="width:120px;">创建人</th>
                     <th style="width:130px;">操作</th>
                 </tr>
@@ -43,7 +43,7 @@
                             class="fa fa-image"></i></a></td>
                     <td ms-if="!el.Banner"><i class="fa fa-image"></i></td>
 
-                    <td>{? el.CreateTime ?}</td>
+                    <td>{? el.CreateTime | medium ?}</td>
                     <td>{? el.first_name ?} {? el.last_name ?}</td>
                     <td>
                         <a class="btn btn-success btn-sm" ms-attr="{ href: '/manage/editpost/' + el.Id }"
@@ -102,14 +102,14 @@
                             <table class="table table-bordered table-responsive">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>#</th>
                                     <th>名称</th>
                                     <th style="width:160px;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr ms-for="($index, el) in categories">
-                                    <td>{? el.Id ?}</td>
+                                    <td>{? $index + 1 ?}</td>
                                     <td>{? el.Name ?}</td>
                                     <td>
                                         <button class="btn btn-info btn-sm" ms-click="editCategory(el)" style="margin-right: 5px;">编辑</button>
@@ -129,8 +129,8 @@
                                     <input type="text" class="form-control" ms-duplex="editCategoryName" />
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary" ms-click="saveCategory()">保存</button>
-                                    <button class="btn btn-default" ms-click="cancelCategory()">取消</button>
+                                    <button type="button" class="btn btn-primary" ms-click="saveCategory()">保存</button>
+                                    <button type="button" class="btn btn-default" ms-click="cancelCategory()">取消</button>
                                 </div>
                             </form>
                         </div>
@@ -165,18 +165,18 @@
                             <table class="table table-bordered table-responsive">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>#</th>
                                     <th>名称</th>
                                     <th style="width:160px;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr ms-for="($index, el) in tags">
-                                    <td>{? el.Id ?}</td>
+                                    <td>{? $index + 1 ?}</td>
                                     <td>{? el.Name ?}</td>
                                     <td>
-                                        <button class="btn btn-info btn-sm" ms-click="editTag(el)" style="margin-right: 5px;">编辑</button>
-                                        <button class="btn btn-danger btn-sm" ms-click="removeTag(el.Id)">删除</button>
+                                        <button type="button" class="btn btn-info btn-sm" ms-click="editTag(el)" style="margin-right: 5px;">编辑</button>
+                                        <button type="button" class="btn btn-danger btn-sm" ms-click="removeTag(el.Id)">删除</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -186,10 +186,14 @@
                     <div class="row" style="margin-top: 10px;" ms-if="isEditTag">
                         <div class="col-md-12">
                             <hr/>
-                            <form class="form-horizontal">
+                            <form class="form-inline">
                                 <div class="form-group">
                                     <label>名称</label>
                                     <input type="text" class="form-control" ms-duplex="editTagName" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary" ms-click="saveTag()">保存</button>
+                                    <button type="button" class="btn btn-default" ms-click="cancelTag()">取消</button>
                                 </div>
                             </form>
                         </div>
@@ -197,8 +201,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
