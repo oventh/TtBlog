@@ -21,7 +21,7 @@ def query(request):
     data = []
 
     for c in comments:
-        c.append({'Id': c.Id, 'Content': c.Content, 'PageId': c.Page.Id, 'PageTitle': c.Page.Title,
+        data.append({'Id': c.Id, 'Content': c.Content, 'PostId': c.Post_id, 'PageTitle': c.Post.Title,
                   'CreateTime': c.CreateTime, 'Creator': c.Creator})
 
 
@@ -54,5 +54,19 @@ def saveComment(request):
         comment.RecommentId = int(recomment)
 
     comment.save()
+
+    return JsonResponse({'result': True})
+
+
+def removeComment(request):
+    id = request.GET.get('id')
+    if id is None or id == '':
+        return JsonResponse({'result': False, 'err': '调用方法缺少必要的参数！'})
+
+    info = models.Comment.objects.get(Id=id)
+    if info is None:
+        return JsonResponse({'result': False, 'err': '未找到操作相关的对象！'})
+
+    info.delete()
 
     return JsonResponse({'result': True})

@@ -7,7 +7,7 @@ from . import post,comment
 urlpatterns = [
 
     # post controllers
-    path('upload/', post.upload, name='upload'),
+    path('upload', post.upload, name='upload'),
     path('getcategories/', post.getCategories, name='getCategories'),
     path('gettags/', post.getTags, name='getTags'),
     path('savepost/', post.savePost, name='savePost'),
@@ -23,5 +23,6 @@ urlpatterns = [
     # comment controllers
     path('querycomment/', comment.query, name='queryComment'),
     path('savecomment/', comment.saveComment, name='saveComment'),
+    path('removecomment', comment.removeComment, name='removeComment'),
 
 ]

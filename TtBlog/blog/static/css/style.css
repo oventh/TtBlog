@@ -7,12 +7,12 @@
   body {    
     background-color: #ebebeb;
     line-height: 1.75em;
-    min-width: 992px;
     font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
   }
 
   .navbar-blue{
-    background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+      background-color: #6f5499;
+      border-color: #e7e7e7;
   }
 
   .navbar a{
