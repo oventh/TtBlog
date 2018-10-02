@@ -45,20 +45,22 @@ def post(request, id):
         return render(request, "blog/post.html", {'site': site})
 
     post = models.Post.objects.get(Id=id)
+
+    count = models.Comment.objects.filter(Post=id).count()
     comments = models.Comment.objects.filter(Post=id).order_by('-Id')
     commentsList = []
     for c in comments:
         if c.RecommentId is None:
-            temp = {'Id': c.Id, 'Creator': c.Creator, 'CreateTime': c.CreateTime, 'PostId': c.Post_id, 'RecommentId': c.RecommentId}
+            temp = {'Id': c.Id, 'Creator': c.Creator, 'CreateTime': c.CreateTime, 'PostId': c.Post_id, 'RecommentId': c.RecommentId, 'Content': c.Content}
             childs = []
             for t in comments:
                 if t.RecommentId == c.Id:
-                    childs.append({'Id': t.Id, 'Creator': t.Creator, 'CreateTime': t.CreateTime, 'PostId': t.Post_id, 'RecommentId': t.RecommentId})
+                    childs.append({'Id': t.Id, 'Creator': t.Creator, 'CreateTime': t.CreateTime, 'PostId': t.Post_id, 'RecommentId': t.RecommentId, 'Content': t.Content})
 
             temp['childs'] = childs
             commentsList.append(temp)
 
-    return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': commentsList})
+    return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': commentsList, 'count': count})
 
 
 def login(request):

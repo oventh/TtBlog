@@ -37,7 +37,7 @@
         </div>
 
         <div class="comment">
-            <h4>评论({{ comments | length }})</h4>
+            <h4>评论 ({{ count }})</h4>
             <hr/>
         </div>
         <div class="row comment-list">
@@ -51,7 +51,7 @@
                             <div class="comment-img"><i class="fa fa-user fa-3x" style="color: #999;"></i></div>
                             <div class="comment-user">
                                 <p>{{c.Creator}}</p>
-                                <p>{{c.CreateTime}}</p>
+                                <p>{{c.CreateTime | date:'Y/m/d H:i'}}</p>
                             </div>
                             <div class="comment-index">
                                 <h3># {{ forloop.counter }}</h3>
@@ -73,7 +73,7 @@
                                     <div class="comment-img"><i class="fa fa-user fa-3x" style="color: #999;"></i></div>
                                     <div class="comment-user">
                                         <p>{{t.Creator}}</p>
-                                        <p>{{t.CreateTime}}</p>
+                                        <p>{{t.CreateTime | date:'Y/m/d H:i'}}</p>
                                     </div>
                                     <div class="comment-index">
                                         <h3># {{ forloop.counter }}</h3>
