@@ -35246,3 +35246,5 @@ TtBlog/manage/__pycache__/__init__.cpython-37.pyc
 TtBlog/manage/__pycache__/urls.cpython-37.pyc
 TtBlog/manage/__pycache__/views.cpython-37.pyc
 TtBlog/TtBlog/__pycache__/settings.cpython-37.pyc
+TtBlog/api/__pycache__/comment.cpython-37.pyc
+TtBlog/TtBlog/__pycache__/settings.cpython-37.pyc

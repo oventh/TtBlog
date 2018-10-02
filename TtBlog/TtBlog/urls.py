@@ -21,36 +21,24 @@ urlpatterns = [
 
     # 前台展示页面路由
     path("", include("blog.urls")),
-    path("post/<int:id>", include("blog.urls")),
-    path('login', include("blog.urls")),
-    path('dologin', include("blog.urls")),
-    path('logout', include("blog.urls")),
-
 
     # 后台管理页面路由
     path("manage/", include("manage.urls")),
-    path("manage/content", include("manage.urls")),
-    path('manage/addpost', include("manage.urls")),
-    path('manage/editpost', include("manage.urls")),
-    path('manage/category', include("manage.urls")),
-    path('manage/comment', include("manage.urls")),
-
 
     # 数据处理接口路由
-    path('api/upload', include("api.urls")),
-    path('api/savepost', include("api.urls")),
-    path('api/getcategories', include("api.urls")),
-    path('api/gettags', include("api.urls")),
-    path('api/removepost', include("api.urls")),
-    path('api/querypost', include("api.urls")),
-    path('api/getpost', include("api.urls")),
-    path('api/savecategory', include('api.urls')),
-    path('api/removecategory', include('api.urls')),
-    path('api/savetag', include('api.urls')),
-    path('api/removetag', include('api.urls')),
-
+    path('api/', include('api.urls')),
+    path('api/savepost/', include('api.urls')),
 
     # django 预留
     path('admin/', admin.site.urls),
+
+
+    
+
+
+
+
+
+
     
 ]

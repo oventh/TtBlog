@@ -6,7 +6,7 @@ import datetime
 import json
 import re
 
-from blog import models
+import blog.models as models
 
 
 @csrf_protect
@@ -137,14 +137,11 @@ def queryPost(request):
             p['first_name'] = user.first_name
             p['last_name'] = user.last_name
 
-
     totalPage = 0
     if count % pageSize == 0:
         totalPage = count // pageSize
     else:
         totalPage = count // pageSize + 1
-
-    # json = serializers.serialize('json', posts)
 
     return JsonResponse({'result': list(posts), 'total': count, 'totalPage': totalPage})
 

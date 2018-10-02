@@ -31,7 +31,7 @@ class Category(models.Model):
 class Comment(models.Model):
     Id = models.AutoField(primary_key=True)    
     Post = models.ForeignKey(Post, on_delete=models.CASCADE,)
-    ReComment = models.ForeignKey('Comment', on_delete=models.CASCADE,)
+    RecommentId = models.IntegerField(null=True)
     Content = models.TextField(null=False)
     CreateTime = models.DateTimeField(null=False)
     Creator = models.CharField(max_length=50, null=False)

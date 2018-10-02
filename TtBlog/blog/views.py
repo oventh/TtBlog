@@ -8,7 +8,6 @@ from . import models
 
 
 def index(request):
-
     category = request.GET.get('category')
     tag = request.GET.get('tag')
     page = request.GET.get('page')
@@ -26,12 +25,12 @@ def index(request):
     posts = []
 
     if category != None and category.isdigit():
-        posts = models.Post.objects.filter(Categories__in = [category]).order_by('-Id')[beginNum:endNum]
+        posts = models.Post.objects.filter(Categories__in=[category]).order_by('-Id')[beginNum:endNum]
     elif tag != None and tag.isdigit():
-        posts = models.Post.objects.filter(Tags__in = [tag]).order_by('-Id')[beginNum:endNum]
+        posts = models.Post.objects.filter(Tags__in=[tag]).order_by('-Id')[beginNum:endNum]
     else:
         posts = models.Post.objects.order_by('-Id')[beginNum:endNum]
-    
+
     categories = models.Category.objects.all()
     tags = models.Tag.objects.all()
     site = models.Site.objects.get()
@@ -40,16 +39,26 @@ def index(request):
 
 
 def post(request, id):
-
     site = models.Site.objects.get()
 
     if id is None:
         return render(request, "blog/post.html", {'site': site})
 
     post = models.Post.objects.get(Id=id)
-    comments = models.Comment.objects.filter(Post = id).order_by('-Id')
+    comments = models.Comment.objects.filter(Post=id).order_by('-Id')
+    commentsList = []
+    for c in comments:
+        if c.RecommentId is None:
+            temp = {'Id': c.Id, 'Creator': c.Creator, 'CreateTime': c.CreateTime, 'PostId': c.Post_id, 'RecommentId': c.RecommentId}
+            childs = []
+            for t in comments:
+                if t.RecommentId == c.Id:
+                    childs.append({'Id': t.Id, 'Creator': t.Creator, 'CreateTime': t.CreateTime, 'PostId': t.Post_id, 'RecommentId': t.RecommentId})
 
-    return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': comments})
+            temp['childs'] = childs
+            commentsList.append(temp)
+
+    return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': commentsList})
 
 
 def login(request):
@@ -63,11 +72,11 @@ def doLogin(request):
     nextUrl = request.POST.get("next")
 
     if username == None or username == '' or password == None or password == '':
-        return render(request, "manage/login.html",{"err": "用户名和密码不能为空！"})
+        return render(request, "manage/login.html", {"err": "用户名和密码不能为空！"})
 
-    user = django.contrib.auth.authenticate(username= username, password = password)
+    user = django.contrib.auth.authenticate(username=username, password=password)
     if user is None:
-        return render(request, "manage/login.html",{"err": "用户名或密码不正确！"})
+        return render(request, "manage/login.html", {"err": "用户名或密码不正确！"})
     else:
         django.contrib.auth.login(request, user)
         if nextUrl is not None:
@@ -79,4 +88,3 @@ def doLogin(request):
 def logout(request):
     logout(request)
     return redirect("/")
-
