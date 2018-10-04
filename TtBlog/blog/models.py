@@ -12,7 +12,7 @@ class Site(models.Model):
 
 class Post(models.Model):
     Id = models.AutoField(primary_key=True)
-    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user")
+    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, related_name="user")
     Title = models.CharField(max_length=100, null=False)
     Banner = models.CharField(max_length=500, null=True)
     Summary = models.CharField(max_length=300, null=True)

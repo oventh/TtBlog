@@ -127,7 +127,7 @@ var vm = avalon.define({
         }
 
 
-        $.post("/api/savepost/", {
+        $.post("/api/savepost", {
             id: vm.id,
             title: vm.title,
             content: editor.txt.html(),

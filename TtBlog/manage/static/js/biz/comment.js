@@ -12,7 +12,7 @@ var vm = avalon.define({
 
         vm.pageIndex = page;
 
-        $.getJSON('/api/querycomment/',{
+        $.getJSON('/api/querycomment',{
             pageIndex: vm.pageIndex,
             pageSize: vm.pageSize,
             stamp: Date().toLocaleString()
