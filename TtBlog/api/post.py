@@ -6,17 +6,22 @@ import datetime
 import json
 import re
 
-import blog.models as models
+from blog import models
+from TtBlog import settings
 
 
 @csrf_protect
 def upload(request):
     urls = []
+
+    print("Base DIR:{0}".format(settings.BASE_DIR))
+    print("Static Url:{0}".format(settings.STATIC_URL))
+
     try:
         for k in request.FILES.keys():
             img = request.FILES.get(k)
             rootDir = datetime.datetime.now().strftime('%y%m%d')    # 以日期做为存储图片的最后一级目录
-            saveDir = os.getcwd() + '/blog/static/upload/{0}'.format(rootDir)
+            saveDir = os.path.join(settings.MEDIA_ROOT, 'upload/{0}'.format(rootDir))
             if not os.path.exists(saveDir):
                 os.makedirs(saveDir)
 
@@ -25,7 +30,7 @@ def upload(request):
                 for data in img.chunks():
                     p.write(data)
 
-            url = "/static/upload/{0}/{1}".format(rootDir, img.name)
+            url = os.path.join(settings.MEDIA_URL, "upload/{0}/{1}".format(rootDir, img.name))
             urls.append(url)
 
         return HttpResponse(json.dumps({'errno': 0, 'data': urls}), content_type="application/json")

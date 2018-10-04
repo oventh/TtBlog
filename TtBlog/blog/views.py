@@ -35,6 +35,7 @@ def index(request):
         count = models.Post.objects.all().count()
         posts = models.Post.objects.order_by('-Id')[beginNum:endNum]
 
+    comments = models.Comment.objects.order_by('-Id')[0:10]    # 取最新的15条评论
     categories = models.Category.objects.all()
     tags = models.Tag.objects.all()
     site = models.Site.objects.get()
@@ -46,8 +47,8 @@ def index(request):
         totalPage = count // 15 + 1
 
     return render(request, "blog/index.html", {'site': site, 'posts': posts, 'categories': categories, 'tags': tags,
-                                               'category': category, 'tag': tag, 'page': page, 'totalPage': totalPage,
-                                               'totalRecord': count})
+                                               'comments': comments, 'category': category, 'tag': tag, 'page': page,
+                                               'totalPage': totalPage, 'totalRecord': count})
 
 
 def post(request, id):

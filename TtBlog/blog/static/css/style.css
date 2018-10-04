@@ -31,6 +31,7 @@
 
   .post-img{
       width: 100%;
+      min-height: 200px;
   }
 
   .post-body{
@@ -49,7 +50,7 @@
   }
 
   .post-content{
-      font-size: 16px;
+      font-size: 15px;
       margin: 15px 0;
       min-height: 400px;
       width:100%;
@@ -137,6 +138,19 @@
       font-weight: 700;
       margin: 5px 0;
       border-bottom: 1px #ebebeb solid;
+  }
+
+  .widget-comment{
+      padding: 10px 10px;
+  }
+
+  .widget-comment p{
+      margin: 0;
+  }
+
+  .widget-comment>.creator{
+      color:#999;
+      text-align: right;
   }
 
   .navbar-nav > .active > a,

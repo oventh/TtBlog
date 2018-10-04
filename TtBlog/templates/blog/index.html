@@ -15,7 +15,7 @@
         {% if p.Banner != None and p.Banner != '' %}
           <a href="/post/{{p.Id}}"><img class="post-img" src="{{p.Banner}}" alt="post image" /></a>
         {% else %}
-          <a href="/post/{{p.Id}}"><img class="post-img" src="http://placehold.it/750x300" alt="post image" /></a>
+          <a href="/post/{{p.Id}}"><img class="post-img" src="/static/image/post-default.jpg" alt="post image" /></a>
         {% endif %}
         <div class="post-body">
           <div class="post-title"><a href="/post/{{p.Id}}">{{p.Title}}</a></div>
@@ -121,7 +121,14 @@
       <div class="widget">
         <div class="widget-title">评论</div>
         <div class="card-body">
-          You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+          <div class="row">
+            <div class="col-xs-12 col-lg-12 widget-comment">
+              {% for c in comments %}
+                <p><a href="/post/{{c.Post_id}}">{{c.Content}}</a></p>
+                <p class="creator"> {{c.Creator}} {{c.CreateTime | date:'m/d'}}</p>
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
 
