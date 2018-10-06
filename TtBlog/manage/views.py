@@ -48,12 +48,8 @@ def addPost(request):
 
 
 @login_required(login_url="/login")
-def category(request):
-    return render(request, "manage/category.html")
-
-
-@login_required(login_url="/login")
 def setting(request):
+
     return render(request, "manage/setting.html")
 
 

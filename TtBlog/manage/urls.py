@@ -11,8 +11,8 @@ urlpatterns = [
     path('content', views.content, name="content"),
     path('addpost', views.addPost, name="addPost"),
     path('editpost/<int:id>', views.editPost, name='editPost'),
-    path('category', views.category, name='category'),
     path('comment', views.comment, name='comment'),
+    path('setting', views.setting, name='setting'),
 
 
 ]

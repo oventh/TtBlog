@@ -2,7 +2,7 @@
 
 from django.urls import path
 
-from . import post,comment
+from . import post, comment, system
 
 urlpatterns = [
 
@@ -24,5 +24,12 @@ urlpatterns = [
     path('querycomment', comment.query, name='queryComment'),
     path('savecomment', comment.saveComment, name='saveComment'),
     path('removecomment', comment.removeComment, name='removeComment'),
+
+
+    # system controllers
+    path('getSetting', system.getSetting, name='getSetting'),
+    path('saveSetting', system.saveSetting, name='saveSetting'),
+
+
 
 ]
