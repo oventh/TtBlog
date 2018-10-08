@@ -130,3 +130,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
 
+# 默认在url后添加 / 斜杠，此处选择关闭掉
+APPEND_SLASH = False
+
