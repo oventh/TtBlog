@@ -1,6 +1,7 @@
 
 var postId = '';
 var recomment = '';
+var reCreator = '';
 var csrfmiddlewaretoken = '';
 
 function saveComment() {
@@ -11,7 +12,7 @@ function saveComment() {
         return;
     }
 
-    $.post('/api/savecomment/', {
+    $.post('/api/savecomment', {
         postId: postId,
         recomment: recomment,
         creator: user,
@@ -29,6 +30,8 @@ function saveComment() {
     }, 'JSON');
 }
 
-function reply(id){
+function reply(id, creator){
     recomment = id;
+    reCreator = creator;
+    $("#commentTitle").text('回复 ' + creator + ' 的评论')
 }

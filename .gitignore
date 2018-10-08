@@ -35251,3 +35251,6 @@ TtBlog/TtBlog/__pycache__/settings.cpython-37.pyc
 /.vscode
 /.idea
 /TtBlog/TtBlog/__pycache__
+TtBlog/api/__pycache__/system.cpython-37.pyc
+TtBlog/api/__pycache__/system.cpython-37.pyc
+TtBlog/db.sqlite3

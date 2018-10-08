@@ -62,7 +62,7 @@
                             <p>{{c.Content}}</p>
                         </div>
                         <div class="comment-foot">
-                            <a href="javascript:void(0);" onclick="reply('{{c.Id}}')">回复</a> |
+                            <a href="#widget-comment" onclick="reply('{{c.Id}}', '{{c.Creator}}')">回复</a> |
                         </div>
                     </div>
 
@@ -93,10 +93,10 @@
 
             </div>
         </div>
-        <div class="comment-widget">
+        <div id="widget-comment" class="comment-widget">
             <div class="row">
                 <div class="col-xs-12 col-lg-12" style="padding: 10px;">
-                    <h4>添加评论</h4>
+                    <h4 id="commentTitle">添加评论</h4>
                     <form>
                         <div class="form-group">
                             <label>名称(*)</label>
