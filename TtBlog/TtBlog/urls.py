@@ -33,6 +33,7 @@ urlpatterns = [
     # 数据处理接口路由
     path('api/', include('api.urls')),
     path('api/savepost/', include('api.urls')),
+    path('api/savecomment', include('api.urls')),
 
     # django 预留
     path('admin/', admin.site.urls),
