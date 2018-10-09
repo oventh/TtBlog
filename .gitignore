@@ -35261,3 +35261,8 @@ TtBlog/media/upload/upload/181004/WechatIMG40.jpeg
 TtBlog/media/upload/upload/181004/timg.jpeg
 TtBlog/media/upload/upload/181004/nginx.jpg
 TtBlog/media/upload/upload/181004/02.jpg
+/TtBlog/log
+/TtBlog/media
+/TtBlog/api/__pycache__
+/TtBlog/db.sqlite3
+/TtBlog/api/__pycache__
