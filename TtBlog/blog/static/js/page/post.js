@@ -12,7 +12,7 @@ function saveComment() {
         return;
     }
 
-    $.post('/api/savecomment/', {
+    $.post('/api/savecomment', {
         postId: postId,
         recomment: recomment,
         creator: user,

@@ -152,19 +152,6 @@
       color:#999;
       text-align: right;
   }
-
-  .navbar-nav > .active > a,
-  .navbar-nav > .active > a:hover,
-  .navbar-nav > .active > a:focus {
-    color: #fff;
-    background-color: #725b94;
-  }
-
-  .navbar-nav > li > a:hover,
-  .navbar-nav > li > a:focus {
-    color: #fff;
-    background-color: #725b94;
-  }
   
   
   
