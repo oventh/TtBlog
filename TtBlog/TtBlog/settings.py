@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+import os, datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,4 +129,46 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
+
+# 配置日志存储的目录
+BASE_LOG_DIR = os.path.join(BASE_DIR, "log")
+
+LOGGING = {
+    'version': 1,  # 保留字
+    'disable_existing_loggers': False,  # 禁用已经存在的logger实例
+
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
+    # 处理器
+    'handlers': {
+        # 在终端打印
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+
+        # 默认的
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',  # 保存到文件，自动切
+            'filename': os.path.join(BASE_LOG_DIR, "{0}_info.log".format(datetime.datetime.now().strftime('%y-%m-%d'))),  # 日志文件
+        }
+    },
+    'loggers': {
+        # 默认的logger应用如下配置
+        'ttBlog': {
+            'handlers': ['console', 'file'],  # 上线之后可以把'console'移除
+            'level': 'DEBUG',
+            'propagate': True,  # 向不向更高级别的logger传递
+        },
+    },
+}
 

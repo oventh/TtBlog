@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import redirect
 
 from . import models
+import logging
 
 
 def index(request):
@@ -35,7 +36,8 @@ def index(request):
         count = models.Post.objects.all().count()
         posts = models.Post.objects.order_by('-Id')[beginNum:endNum]
 
-    comments = models.Comment.objects.order_by('-Id')[0:10]    # 取最新的15条评论
+    comments = models.Comment.objects.order_by('-Id')[0:10]    # 取最新的10条评论
+
     categories = models.Category.objects.all()
     tags = models.Tag.objects.all()
     site = models.Site.objects.get()
@@ -59,6 +61,17 @@ def post(request, id):
 
     post = models.Post.objects.get(Id=id)
 
+    # 猜你喜欢模块，就是以当前文章为起点，查询5条比当前文章早发布的，再查询5条比当前文章晚发布的。
+    recommends1 = models.Post.objects.filter(Id__lt=id)[0:5]
+    recommends2 = models.Post.objects.filter(Id__gt=id)[0:5]
+
+    recommends = []
+    for r in recommends1:
+        recommends.append(r)
+
+    for r in recommends2:
+        recommends.append(r)
+
     count = models.Comment.objects.filter(Post=id).count()
     comments = models.Comment.objects.filter(Post=id).order_by('-Id')
     commentsList = []
@@ -75,7 +88,7 @@ def post(request, id):
             temp['childs'] = childs
             commentsList.append(temp)
 
-    return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': commentsList, 'count': count})
+    return render(request, "blog/post.html", {'site': site, 'post': post, 'comments': commentsList, 'recommends': recommends, 'count': count})
 
 
 def login(request):

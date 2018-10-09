@@ -121,7 +121,11 @@
             <div class="widget-title">猜你喜欢</div>
             <div class="row">
                 <div class="col-xs-12 col-lg-12">
+                    {% for r in recommends %}
 
+                    <p><a href="/post/{{r.Id}}">{{r.Title}}</a></p>
+
+                    {% endfor %}
                 </div>
             </div>
         </div> <!-- Search Widget -->

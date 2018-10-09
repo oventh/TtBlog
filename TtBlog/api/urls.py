@@ -27,8 +27,8 @@ urlpatterns = [
 
 
     # system controllers
-    path('getSetting', system.getSetting, name='getSetting'),
-    path('saveSetting', system.saveSetting, name='saveSetting'),
+    path('getsetting', system.getSetting, name='getSetting'),
+    path('savesetting', system.saveSetting, name='saveSetting'),
 
 
 

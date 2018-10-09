@@ -6,9 +6,11 @@ var vm = avalon.define({
     banner: '',
     pageSize: 15,
 
+    csrfmiddlewaretoken: '',
+
     
     getSetting: function () {
-        $.getJSON('api/getSetting',{
+        $.getJSON('/api/getsetting',{
             stamp: Date().toString()
         }, function (res) {
             if(res.result != null)
@@ -24,11 +26,12 @@ var vm = avalon.define({
             return;
         }
 
-        $.post('api/saveSetting', {
+        $.post('/api/savesetting', {
             name: vm.name,
             summary: vm.summary,
-            Banner: vm.banner,
-            pageSize: vm.pageSize
+            banner: vm.banner,
+            pageSize: vm.pageSize,
+            csrfmiddlewaretoken: vm.csrfmiddlewaretoken
         }, function (res) {
             if(res.result){
                 layer.alert("站点配置已保存！")

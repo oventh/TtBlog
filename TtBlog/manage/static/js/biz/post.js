@@ -227,7 +227,7 @@ var vm = avalon.define({
         if(id== '')
             return;
 
-        $.getJSON('api/removecategory',{
+        $.getJSON('/api/removecategory',{
             id: id,
             stamp: Date().toLocaleString()
         }, function (res) {
@@ -248,7 +248,7 @@ var vm = avalon.define({
             return;
         }
 
-        $.getJSON('api/savecategory',{
+        $.getJSON('/api/savecategory',{
             id: vm.editCategoryId,
             name: vm.editCategoryName
         }, function (res) {
@@ -286,7 +286,7 @@ var vm = avalon.define({
         if(id == '')
             return;
 
-        $.getJSON('api/removetag',{
+        $.getJSON('/api/removetag',{
             id: id,
             stamp: Date().toLocaleString()
         }, function (res) {
@@ -306,7 +306,7 @@ var vm = avalon.define({
             return;
         }
 
-        $.getJSON('api/savetag',{
+        $.getJSON('/api/savetag',{
             id: vm.editTagId,
             name: vm.editTagName,
         }, function (res) {
