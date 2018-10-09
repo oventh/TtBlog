@@ -5,80 +5,79 @@
 
 {% block content %}
 
-<div class="row">    
+<div class="row">
     <!-- Blog Entries Column -->
     <div class="col-xs-12 col-lg-9">
-      
-      {% for p in posts %}
-      <!-- Blog Post -->
-      <div class="post">
-        {% if p.Banner != None and p.Banner != '' %}
-          <a href="/post/{{p.Id}}"><img class="post-img" src="{{p.Banner}}" alt="post image" /></a>
-        {% else %}
-          <a href="/post/{{p.Id}}"><img class="post-img" src="/static/image/post-default.jpg" alt="post image" /></a>
-        {% endif %}
-        <div class="post-body">
-          <div class="post-title"><a href="/post/{{p.Id}}">{{p.Title}}</a></div>
-          <div class="post-tag">
-            <b>分类：</b>
-            {% for c in p.Categories.all %}
-              {{c.Name}}
-              {% if not forloop.last %}
-                /
-              {% endif %}
-            {% endfor %}
 
-            <b style="margin-left:10px;">标签:</b>
-            {% for t in p.Tags.all %}
-              {{t.Name}}
-              {% if not forloop.last %}
-                /
-              {% endif %}
-            {% endfor %}
-            <b style="margin-left:10px;">时间：</b>{{p.CreateTime| date:'Y/m/d H:i'}}
-            <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.first_name}} {{p.User.last_name}}</a>
-          </div>
-          <p class="post-summary">
-            {% autoescape off %}
-              {{ p.Summary }}
-            {% endautoescape %}
+        {% for p in posts %}
+        <!-- Blog Post -->
+        <div class="post">
+            {% if p.Banner != None and p.Banner != '' %}
+            <a href="/post/{{p.Id}}"><img class="post-img" src="{{p.Banner}}" alt="post image"/></a>
+            {% else %}
+            <a href="/post/{{p.Id}}"><img class="post-img" src="/static/image/post-default.jpg" alt="post image"/></a>
+            {% endif %}
+            <div class="post-body">
+                <div class="post-title"><a href="/post/{{p.Id}}">{{p.Title}}</a></div>
+                <div class="post-tag">
+                    <b>分类：</b>
+                    {% for c in p.Categories.all %}
+                    {{c.Name}}
+                    {% if not forloop.last %}
+                    /
+                    {% endif %}
+                    {% endfor %}
 
-          </p>
-          <a href="/post/{{p.Id}}" class="btn btn-default">查看详细 >></a>
-        </div>            
-      </div>
-      {% endfor %}
+                    <b style="margin-left:10px;">标签:</b>
+                    {% for t in p.Tags.all %}
+                    {{t.Name}}
+                    {% if not forloop.last %}
+                    /
+                    {% endif %}
+                    {% endfor %}
+                    <b style="margin-left:10px;">时间：</b>{{p.CreateTime| date:'Y/m/d H:i'}}
+                    <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.first_name}} {{p.User.last_name}}</a>
+                </div>
+                <p class="post-summary">
+                    {% autoescape off %}
+                    {{ p.Summary }}
+                    {% endautoescape %}
 
-      
+                </p>
+                <a href="/post/{{p.Id}}" class="btn btn-default">查看详细 >></a>
+            </div>
+        </div>
+        {% endfor %}
 
-      <!-- Pagination -->
-      <nav aria-label="Page navigation" style="text-align:center;">
-          <ul class="pagination">
-            <li>
-              <a href="/?page=1&category={{category}}&tag={{tag}}" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li>
-              {% if page > 1 %}
-              <a  href="/?page={{ page|add:-1 }}&category={{category}}&tag={{tag}}">上一页</a>
-              {% else %}
-              <a href="/?page={{page}}&category={{category}}&tag={{tag}}">上一页</a>
-              {% endif %}
-            </li>
-            <li>
-              {% if page < totalPage %}
-              <a href="/?page={{ page|add:1 }}&category={{category}}&tag={{tag}}">下一页</a>
-              {% else %}
-              <a href="/?page={{totalPage}}&category={{category}}&tag={{tag}}">下一页</a>
-              {% endif %}
-            </li>
-            <li>
-              <a href="/?page={{totalPage}}&category={{category}}&tag={{tag}}" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" style="text-align:center;">
+            <ul class="pagination">
+                <li>
+                    <a href="/?page=1&category={{category}}&tag={{tag}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li>
+                    {% if page > 1 %}
+                    <a href="/?page={{ page|add:-1 }}&category={{category}}&tag={{tag}}&keyword={{keyword}}">上一页</a>
+                    {% else %}
+                    <a href="/?page={{page}}&category={{category}}&tag={{tag}}">上一页</a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if page < totalPage %}
+                    <a href="/?page={{ page|add:1 }}&category={{category}}&tag={{tag}}&keyword={{keyword}}">下一页</a>
+                    {% else %}
+                    <a href="/?page={{totalPage}}&category={{category}}&tag={{tag}}&keyword={{keyword}}">下一页</a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="/?page={{totalPage}}&category={{category}}&tag={{tag}}&keyword={{keyword}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
         </nav>
 
     </div>
@@ -86,56 +85,78 @@
     <!-- Sidebar Widgets Column -->
     <div class="col-xs-12 col-lg-3">
 
-      <!-- Categories Widget -->
-      <div class="widget">
-        <div class="widget-title">分类</div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-xs-12 col-lg-12">
-              {% for c in categories %}
-                <span class="label label-primary"><a href="/?category={{c.Id}}" style="color:#fff;">{{c.Name}}</a></span>
-              {% endfor %}
-              <div class="clearfix"></div>
-            </div>            
-        </div>
-      </div>
-      </div>
-
-
-      <!-- tags Widget -->
-      <div class="widget">
-          <div class="widget-title">标签</div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-xs-12 col-lg-12">
-                {% for c in tags %}
-                  <span class="label label-success"><a href="/?tag={{c.Id}}" style="color:#fff;">{{c.Name}}</a></span>
-                {% endfor %}
-                <div class="clearfix"></div>
-              </div>            
-          </div>
-        </div>
-      </div>
-
-      <!-- Side Widget -->
-      <div class="widget">
-        <div class="widget-title">评论</div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-xs-12 col-lg-12 widget-comment">
-              {% for c in comments %}
-                <p><a href="/post/{{c.Post_id}}">{{c.Content}}</a></p>
-                <p class="creator"> {{c.Creator}} {{c.CreateTime | date:'m/d'}}</p>
-              {% endfor %}
+        <!-- Search Widget -->
+        <div class="widget">
+            <div class="widget-title">搜索</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                       <form class="form-inline" method="get" action="/">
+                           <div class="form-group">
+                               {% if keyword is not None and keyword != '' %}
+                               <input class="form-control" name="keyword" value="{{keyword}}" style="width: 170px;" placeholder="请输入查询关键字">
+                               {% else %}
+                               <input class="form-control" name="keyword" style="width: 170px;" placeholder="请输入查询关键字">
+                               {% endif %}
+                           </div>
+                           <button type="submit" class="btn btn-default">搜索</button>
+                       </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+
+        <!-- Categories Widget -->
+        <div class="widget">
+            <div class="widget-title">分类</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        {% for c in categories %}
+                        <span class="label label-primary"><a href="/?category={{c.Id}}"
+                                                             style="color:#fff;">{{c.Name}}</a></span>
+                        {% endfor %}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- tags Widget -->
+        <div class="widget">
+            <div class="widget-title">标签</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        {% for c in tags %}
+                        <span class="label label-success"><a href="/?tag={{c.Id}}"
+                                                             style="color:#fff;">{{c.Name}}</a></span>
+                        {% endfor %}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="widget">
+            <div class="widget-title">最新评论</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 widget-comment">
+                        {% for c in comments %}
+                        <p><a href="/post/{{c.Post_id}}">{{c.Content}}</a></p>
+                        <p class="creator"> {{c.Creator}} {{c.CreateTime | date:'m/d'}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-  </div>
-
+</div>
 
 
 {% endblock %}

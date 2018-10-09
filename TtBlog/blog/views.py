@@ -12,6 +12,7 @@ def index(request):
     category = request.GET.get('category')
     tag = request.GET.get('tag')
     page = request.GET.get('page')
+    keyword = request.GET.get('keyword')
 
     beginNum, endNum = 0, 15
 
@@ -32,6 +33,9 @@ def index(request):
     elif tag != None and tag.isdigit():
         count = models.Post.objects.filter(Tags__in=[tag]).count()
         posts = models.Post.objects.filter(Tags__in=[tag]).order_by('-Id')[beginNum:endNum]
+    elif keyword is not None and keyword != '':
+        count = models.Post.objects.filter(Title__contains=keyword).count()
+        posts = models.Post.objects.filter(Title__contains=keyword).order_by('-Id')[beginNum:endNum]
     else:
         count = models.Post.objects.all().count()
         posts = models.Post.objects.order_by('-Id')[beginNum:endNum]
@@ -49,8 +53,8 @@ def index(request):
         totalPage = count // 15 + 1
 
     return render(request, "blog/index.html", {'site': site, 'posts': posts, 'categories': categories, 'tags': tags,
-                                               'comments': comments, 'category': category, 'tag': tag, 'page': page,
-                                               'totalPage': totalPage, 'totalRecord': count})
+                                               'comments': comments, 'category': category, 'tag': tag, 'keyword': keyword,
+                                               'page': page, 'totalPage': totalPage, 'totalRecord': count})
 
 
 def post(request, id):
@@ -116,5 +120,5 @@ def doLogin(request):
 
 
 def logout(request):
-    logout(request)
+    django.contrib.auth.logout(request)
     return redirect("/")
