@@ -1,5 +1,5 @@
 # 极简博客 Ttblog
-使用 python3 + django2 + sqlite + avalon.js进行开发  
+一个简单、美观、高效的博客系统
 ### 简介
 * 你可以用Ttblog搭建自己的博客平台，也可以用来作为python+django的入门学习案例  
 * 后台管理使用mvvm框架avalon.js进行交互，强调操作的交互性，也便于按照自己的需要修改界面风格
