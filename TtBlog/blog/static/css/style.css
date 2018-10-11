@@ -49,11 +49,21 @@
       margin: 10px 0;
   }
 
+  .post-summary pre{
+      background-color: #fff;
+      border: 0px;
+      font-size: 15px;
+  }
+
   .post-content{
       font-size: 15px;
       margin: 15px 0;
       min-height: 400px;
       width:100%;
+  }
+
+  .post-content img{
+      width: 100%;
   }
 
   .post-foot{

@@ -38,12 +38,11 @@
                     <b style="margin-left:10px;">时间：</b>{{p.CreateTime| date:'Y/m/d H:i'}}
                     <b style="margin-left:10px;">作者：</b><a href="#">{{p.User.first_name}} {{p.User.last_name}}</a>
                 </div>
-                <p class="post-summary">
-                    {% autoescape off %}
-                    {{ p.Summary }}
-                    {% endautoescape %}
 
-                </p>
+
+                <div class="post-summary">
+                    <pre>{{ p.Summary }}</pre>
+                </div>
                 <a href="/post/{{p.Id}}" class="btn btn-default">查看详细 >></a>
             </div>
         </div>

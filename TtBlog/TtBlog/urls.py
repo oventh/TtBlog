@@ -35,6 +35,9 @@ urlpatterns = [
     path('api/savepost/', include('api.urls')),
     path('api/savecomment', include('api.urls')),
 
+    # 用于微信公众号业务域名的验证文件的访问
+    # url(r'^(?P<path>v0gmiYE0PG.txt)$', serve, {'document_root': settings.BASE_DIR}),
+
     # django 预留
     path('admin/', admin.site.urls),
 
