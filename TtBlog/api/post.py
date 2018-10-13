@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, JsonResponse
-import os
+import os, requests
 import datetime
 import json
 import re
@@ -48,7 +48,17 @@ def savePost(request):
     tags = request.POST.get('tag')
 
     # 自动从文章正文中查找图片，将第一张图片作为文章的Banner图
-    reg = re.search(r'<img\s+src="(?P<url>.*?)"', content)
+
+    banner = None
+    temp = re.finditer(r'<img\s+src="(?P<url>.*?)"', content)
+    for match in temp:
+        url = match.group(1)
+        if re.match('http', url) is not None:
+            localUrl = downloadImage(url)
+            str.replace(content, url, localUrl)
+        else:
+            if banner is None:
+                banner = match.group(1)
 
     try:
 
@@ -58,7 +68,7 @@ def savePost(request):
             post.Content = content
             post.CreateTime = datetime.datetime.now()
             post.CanComment = True
-            post.Banner = "" if (reg is None) else reg.group(1)
+            post.Banner = "" if (banner is None) else banner
             post.Summary = summary
             post.User = request.user
             post.save()
@@ -71,7 +81,7 @@ def savePost(request):
             post.Title = title
             post.Content = content
             post.CanComment = True
-            post.Banner = "" if (reg is None) else reg.group(1)
+            post.Banner = "" if (banner is None) else banner
             post.Summary = summary
             post.save()
 
@@ -81,6 +91,31 @@ def savePost(request):
         return HttpResponse(json.dumps({'result': True}))
     except Exception as err:
         return HttpResponse(json.dumps({'result': False, 'err': '保存数据时发生异常！Err:{0}'.format(err)}))
+
+
+# 下载外部链接的图片
+def downloadImage(url):
+
+    # 根据url参数找到文件名称，如果没找到，说明url不合法，返回None
+    nameReg = re.search(r'(?P<name>[\w\-\.,@?^=%&:~\+#]*\.(jpg|jpeg|png|gif|svg))', url)
+    if nameReg is None:
+        return None
+
+    fileName = nameReg.group(1)
+
+    res = requests.get(url)  # 访问url获取文件
+
+    rootDir = datetime.datetime.now().strftime('%y%m%d')  # 以日期做为存储图片的最后一级目录
+    saveDir = os.path.join(settings.MEDIA_ROOT, 'upload/{0}'.format(rootDir))
+    if not os.path.exists(saveDir):
+        os.makedirs(saveDir)
+
+    savePath = os.path.join(saveDir, fileName)
+
+    with open(savePath, 'wb') as f:
+        f.write(res.content)
+
+    return os.path.join(settings.MEDIA_URL, "upload/{0}/{1}".format(rootDir, fileName))
 
 
 def getCategories(request):
