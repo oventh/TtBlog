@@ -50,15 +50,18 @@ def savePost(request):
     # 自动从文章正文中查找图片，将第一张图片作为文章的Banner图
 
     banner = None
-    temp = re.finditer(r'<img\s+src="(?P<url>.*?)"', content)
+    temp = re.finditer(r'<img\s+(alt=".*?"){0,1}\s*src="(?P<url>.*?){1}">', content)
     for match in temp:
-        url = match.group(1)
+        url = match.group('url')
+        print(url)
         if re.match('http', url) is not None:
             localUrl = downloadImage(url)
-            str.replace(content, url, localUrl)
+            content = str.replace(content, url, localUrl)
+            if banner is None:
+                banner = localUrl
         else:
             if banner is None:
-                banner = match.group(1)
+                banner = url
 
     try:
 
@@ -101,7 +104,7 @@ def downloadImage(url):
     if nameReg is None:
         return None
 
-    fileName = nameReg.group(1)
+    fileName = nameReg.group('name')
 
     res = requests.get(url)  # 访问url获取文件
 
