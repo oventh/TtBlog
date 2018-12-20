@@ -54,7 +54,7 @@ def savePost(request):
     for match in temp:
         url = match.group('url')
         print(url)
-        if re.match('http', url) is not None:
+        if re.match('http|https', url) is not None:
             localUrl = downloadImage(url)
             content = str.replace(content, url, localUrl)
             if banner is None:
@@ -106,7 +106,10 @@ def downloadImage(url):
 
     fileName = nameReg.group('name')
 
-    res = requests.get(url)  # 访问url获取文件
+    header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                            'Chrome/63.0.3239.132 Safari/537.36'}
+
+    res = requests.get(url, headers=header)  # 访问url获取文件
 
     rootDir = datetime.datetime.now().strftime('%y%m%d')  # 以日期做为存储图片的最后一级目录
     saveDir = os.path.join(settings.MEDIA_ROOT, 'upload/{0}'.format(rootDir))

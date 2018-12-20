@@ -17,7 +17,7 @@ def index(request):
     beginNum, endNum = 0, 15
 
     if page is None or not page.isdigit():
-        page = 0
+        page = 1
         beginNum, endNum = 0, 15
     else:
         page = int(page)
@@ -27,13 +27,13 @@ def index(request):
     posts = []
     count = 0
 
-    if category != None and category.isdigit():
+    if category is not None and category.isdigit():
         count = models.Post.objects.filter(Categories__in=[category]).count()
         posts = models.Post.objects.filter(Categories__in=[category]).order_by('-Id')[beginNum:endNum]
-    elif tag != None and tag.isdigit():
+    elif tag is not None and tag.isdigit():
         count = models.Post.objects.filter(Tags__in=[tag]).count()
         posts = models.Post.objects.filter(Tags__in=[tag]).order_by('-Id')[beginNum:endNum]
-    elif keyword is not None and keyword != '':
+    elif keyword is not None and keyword != 'None' and keyword != '':
         count = models.Post.objects.filter(Title__contains=keyword).count()
         posts = models.Post.objects.filter(Title__contains=keyword).order_by('-Id')[beginNum:endNum]
     else:
