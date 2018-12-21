@@ -50,7 +50,7 @@ def savePost(request):
     # 自动从文章正文中查找图片，将第一张图片作为文章的Banner图
 
     banner = None
-    temp = re.finditer(r'<img\s+(alt=".*?"){0,1}\s*src="(?P<url>.*?){1}">', content)
+    temp = re.finditer(r'<img\s+.*?\s*src="(?P<url>.*?)".*?>', content)
     for match in temp:
         url = match.group('url')
         print(url)
